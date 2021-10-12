@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Menu } from 'antd';
 import {
 	HomeOutlined,
@@ -11,11 +12,12 @@ import './navbar.scss';
 const { SubMenu } = Menu;
 
 const NavBar = () => {
-	const state = { current: "Home" };
+	const [state, setState] = useState({ current: "Home" });
 
 	const handleClick = (e) => {
     console.log(e.key)
-		// const setState = ({ current: e.key });
+		setState({ current: e.key });
+    console.log(state)
 	};
 
 	const current = state;
@@ -75,7 +77,7 @@ const NavBar = () => {
           key="Acerca de"
           icon={<TeamOutlined />}>
           <a 
-            href="{#}" 
+            href="/#" 
             target="_blank" 
             rel="noopener noreferrer">
             Acerca de
