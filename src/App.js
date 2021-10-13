@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'
 import { Content, Header } from 'antd/lib/layout/layout';
 import logo from './img/logo/logo-xs-n.png';
 import './App.scss';
-import NavBar from './components/Navbar/NavBar';
+import NavBar from './components/Navbar';
 
 function App() {
   return (
