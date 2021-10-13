@@ -7,7 +7,7 @@ import {
   ShoppingOutlined,
   TeamOutlined
 } from "@ant-design/icons";
-import './navbar.scss';
+import './NavBar.scss';
 
 const { SubMenu } = Menu;
 
