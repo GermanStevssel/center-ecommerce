@@ -1,21 +1,27 @@
 .ant-layout-header {
-  .ant-menu-light {
-    .ant-menu-item,
-    a,
-    .ant-menu-submenu-title {
-      &:hover {
-        color: #20dada;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .ant-menu-light {
+      .ant-menu-item,
+      a,
+      .ant-menu-submenu-title {
+        &:hover {
+          color: #20dada;
+        }
       }
     }
-  }
 
-  .ant-menu-horizontal {
-    &:not(.ant-menu-dark) {
-      &>.ant-menu-item,
-        .ant-menu-submenu {
-        &:hover {
-          &:after {
-            border-bottom: 2px solid #20dada;
+    .ant-menu-horizontal {
+      &:not(.ant-menu-dark) {
+        &>.ant-menu-item,
+          .ant-menu-submenu {
+          &:hover {
+            &:after {
+              border-bottom: 2px solid #20dada;
+            }
           }
         }
       }

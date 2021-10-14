@@ -8,6 +8,8 @@ import {
   TeamOutlined
 } from "@ant-design/icons";
 import './NavBar.scss';
+import CartWidget from '../CartWidget';
+
 
 const { SubMenu } = Menu;
 
@@ -23,6 +25,7 @@ const NavBar = () => {
 	const current = state;
 
 	return (
+    <nav>
       <Menu 
         onClick={handleClick} 
         selectedKeys={[current]} 
@@ -84,6 +87,8 @@ const NavBar = () => {
           </a>
         </Menu.Item>
       </Menu>
+      <CartWidget qty='2' />
+    </nav>
 	);
 };
 
