@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu } from 'antd';
 import {
+  MenuOutlined,
 	HomeOutlined,
 	AppstoreOutlined,
 	CloudDownloadOutlined,
@@ -29,7 +30,8 @@ const NavBar = () => {
       <Menu 
         onClick={handleClick} 
         selectedKeys={[current]} 
-        mode="horizontal">
+        mode="horizontal"
+        overflowedIndicator={<MenuOutlined />}>
         <Menu.Item 
           key="Home" 
           icon={<HomeOutlined />}>

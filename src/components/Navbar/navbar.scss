@@ -1,10 +1,10 @@
 .ant-layout-header {
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    .ant-menu-light {
+  nav {    
+    position: relative;
+
+    .ant-menu-overflow {
+      justify-content: flex-end;
+      
       .ant-menu-item,
       a,
       .ant-menu-submenu-title {

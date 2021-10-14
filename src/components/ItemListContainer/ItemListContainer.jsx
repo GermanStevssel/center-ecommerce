@@ -17,7 +17,6 @@ const ItemListContainer = (props) => {
         return (
           <Card
           hoverable
-          style={{ width: 240, margin: '2rem' }}
           cover={<img alt={ console.alt } src={ console.img } />}
           >
             <Meta title={console.name} description={ console.price } />
