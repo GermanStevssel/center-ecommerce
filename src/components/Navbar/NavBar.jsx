@@ -8,7 +8,7 @@ import {
   ShoppingOutlined,
   TeamOutlined
 } from "@ant-design/icons";
-
+import './NavBar.scss';
 import CartWidget from '../CartWidget';
 
 
