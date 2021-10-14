@@ -1,0 +1,31 @@
+.ant-layout-header {
+  
+  nav {    
+    position: relative;
+
+    .ant-menu-overflow {
+      justify-content: flex-end;
+      
+      .ant-menu-item,
+      a,
+      .ant-menu-submenu-title {
+        &:hover {
+          color: #20dada;
+        }
+      }
+    }
+
+    .ant-menu-horizontal {
+      &:not(.ant-menu-dark) {
+        &>.ant-menu-item,
+          .ant-menu-submenu {
+          &:hover {
+            &:after {
+              border-bottom: 2px solid #20dada;
+            }
+          }
+        }
+      }
+    }
+  }
+}
