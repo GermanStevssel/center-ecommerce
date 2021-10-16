@@ -1,0 +1,36 @@
+.itemCount {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	.ant-btn-primary {
+		border-color: #fdc145;
+		background-color: #fdc145;
+	}
+
+	.itemCount__selector {
+		display: flex;
+		margin: 0.3rem auto;
+
+		.ant-btn {
+			height: 25px;
+
+			.anticon {
+				vertical-align: 0;
+			}
+		}
+
+		.counter {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 25px;
+			padding: 4px 15px;
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+			box-shadow: 0 2px 0 rgb(0, 0, 0, 2%);
+			font-weight: 500;
+			font-size: calc(0.2rem + calc(0.3rem + 0.5vw));
+		}
+	}
+}

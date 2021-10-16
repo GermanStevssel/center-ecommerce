@@ -1,37 +1,42 @@
 .itemListContainer {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  .title {
-    text-align: center;
+	.title {
+		text-align: center;
 
-    h2 {
-      color: rgba(0,0,0, .3);
-      letter-spacing: 1.1rem;
-      font-weight: 500;
-      font-size: 5.5rem;
-      margin: auto;
-      padding: 0;
+		h2 {
+			color: rgba(0, 0, 0, 0.3);
+			letter-spacing: 1.1rem;
+			font-weight: 500;
+			font-size: 5.5rem;
+			margin: auto;
+			padding: 0;
 
-      @media (max-width: 768px) {
-        font-size: calc(2rem + 5vw);
-        letter-spacing: 1vw;
-      }
-    }
-  }
+			@media (max-width: 768px) {
+				font-size: calc(2rem + 5vw);
+				letter-spacing: 1vw;
+			}
+		}
+	}
 
-  .products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5vw;
-    grid-auto-rows: minmax(100px, auto);
-    justify-items: center;
-    width: 80%;
-    margin: 1rem auto;
+	.products {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 5vw;
+		grid-auto-rows: minmax(100px, auto);
+		justify-items: center;
+		width: 80%;
+		margin: 1rem auto;
 
-    @media (max-width: 768px) {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-  }
+		@media (max-width: 768px) {
+			display: grid;
+			grid-template-columns: 1fr;
+		}
+
+		.ant-card-meta-description {
+			font-size: 1rem;
+			color: #0f0f0f;
+		}
+	}
 }

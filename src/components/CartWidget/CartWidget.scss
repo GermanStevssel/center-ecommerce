@@ -1,26 +1,27 @@
 .cartWidget {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: -3rem;
-  display: flex;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: -3rem;
+	display: flex;
+	cursor: pointer;
 
-  .quantity {
-    display: flex;
-    position: relative;
-    left: -0.5rem;
-    top: -0.6rem;
-    justify-content: center;
-    align-items: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: #fdc145;
-    border-radius: 50%;
+	.quantity {
+		display: flex;
+		position: relative;
+		left: -0.5rem;
+		top: -0.6rem;
+		justify-content: center;
+		align-items: center;
+		width: 1.5rem;
+		height: 1.5rem;
+		background-color: #fdc145;
+		border-radius: 50%;
 
-    span {
-      font-size: 1rem;
-      color: black;
-      font-weight: bold;
-    }
-  }
+		span {
+			font-size: 1rem;
+			color: black;
+			font-weight: bold;
+		}
+	}
 }
