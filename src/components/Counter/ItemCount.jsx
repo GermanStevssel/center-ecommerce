@@ -8,19 +8,11 @@ import {
 import "./ItemCount.scss";
 
 const ItemCount = ({ stock }) => {
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(1);
 
-	const add = () => {
-		if (count < stock) {
-			setCount(count + 1);
-		}
-	};
+	const add = () => (count < stock ? setCount(count + 1) : null);
 
-	const remove = () => {
-		if (count > 0) {
-			setCount(count - 1);
-		}
-	};
+	const remove = () => (count > 1 ? setCount(count - 1) : null);
 
 	return (
 		<div className="itemCount">

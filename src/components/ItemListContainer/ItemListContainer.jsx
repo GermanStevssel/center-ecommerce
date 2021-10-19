@@ -1,18 +1,18 @@
 import { Card } from "antd";
 import "./ItemListContainer.scss";
-import img from "../../products/products";
+import products from "../../products/products";
 import ItemCount from "../Counter/ItemCount";
 
 const { Meta } = Card;
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({ greeting }) => {
 	return (
 		<div className="itemListContainer">
 			<div className="title">
-				<h2>{props.greeting}</h2>
+				<h2>{greeting}</h2>
 			</div>
 			<div className="products">
-				{img.map((product) => (
+				{products.map((product) => (
 					<Card
 						key={product.id}
 						hoverable
