@@ -3,13 +3,17 @@ import ItemCount from "../ItemCount";
 
 const { Meta } = Card;
 
-const Item = ({ id, alt, img, name, price, stock }) => {
-	console.log({ img });
+const Item = (item) => {
+	const itemFeature = item.item;
 	return (
 		<div>
-			<Card key={id} hoverable cover={<img alt={alt} src={img} />}>
-				<Meta title={name} description={price} />
-				<ItemCount stock={stock} />
+			<Card
+				key={itemFeature.id}
+				hoverable
+				cover={<img alt={itemFeature.alt} src={itemFeature.img} />}
+			>
+				<Meta title={itemFeature.name} description={itemFeature.price} />
+				<ItemCount stock={itemFeature.stock} />
 			</Card>
 		</div>
 	);

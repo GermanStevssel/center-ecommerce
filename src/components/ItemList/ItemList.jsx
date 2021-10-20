@@ -2,17 +2,9 @@ import Item from "../Item";
 
 const ItemList = (items) => {
 	const item = items.items;
+	console.log(item.id);
 
-	return (
-		<Item
-			id={item.id}
-			alt={item.alt}
-			img={item.img}
-			name={item.name}
-			price={item.price}
-			stock={item.stock}
-		/>
-	);
+	return <Item item={item} />;
 };
 
 export default ItemList;
