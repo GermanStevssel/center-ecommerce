@@ -2,7 +2,7 @@ import "./ItemListContainer.scss";
 import catalogue from "../../products/products";
 import ItemList from "../ItemList";
 import { useState, useEffect } from "react";
-import Loader from "../Loader";
+import Loading from "../Loading";
 
 const ItemListContainer = ({ contTitle }) => {
 	const [products, setProducts] = useState([]);
@@ -28,21 +28,22 @@ const ItemListContainer = ({ contTitle }) => {
 
 	return (
 		<>
-			{loader && <Loader />}
-			<div className="item-list-container">
-				{!loader && (
+			{loader ? (
+				<Loading />
+			) : (
+				<div className="item-list-container">
 					<div className="title">
 						<h2>{contTitle}</h2>
 					</div>
-				)}
-				<div className="products">
-					{products.length
-						? products.map((product) => {
-								return <ItemList items={product} />;
-						  })
-						: null}
+					<div className="products">
+						{products.length
+							? products.map((product) => {
+									return <ItemList items={product} />;
+							  })
+							: null}
+					</div>
 				</div>
-			</div>
+			)}
 		</>
 	);
 };

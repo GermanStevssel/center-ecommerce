@@ -1,6 +1,6 @@
-import "./Loader.scss";
+import "./Loading.scss";
 
-const Loader = () => {
+const Loading = () => {
 	return (
 		<div className="loaderContainer">
 			<div className="loader"></div>
@@ -10,4 +10,4 @@ const Loader = () => {
 	);
 };
 
-export default Loader;
+export default Loading;
