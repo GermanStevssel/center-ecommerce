@@ -2,9 +2,11 @@ import "./ItemListContainer.scss";
 import catalogue from "../../products/products";
 import ItemList from "../ItemList";
 import { useState, useEffect } from "react";
+import Loader from "../Loader";
 
 const ItemListContainer = ({ contTitle }) => {
 	const [products, setProducts] = useState([]);
+	const [loader, setLoader] = useState(true);
 
 	const getProducts = (db) =>
 		new Promise((resolve, reject) => {
@@ -14,6 +16,7 @@ const ItemListContainer = ({ contTitle }) => {
 				} else {
 					reject("No existen productos en esta categoría");
 				}
+				setLoader(false);
 			}, 2000);
 		});
 
@@ -24,18 +27,23 @@ const ItemListContainer = ({ contTitle }) => {
 	}, []);
 
 	return (
-		<div className="itemListContainer">
-			<div className="title">
-				<h2>{contTitle}</h2>
+		<>
+			{loader && <Loader />}
+			<div className="itemListContainer">
+				{!loader && (
+					<div className="title">
+						<h2>{contTitle}</h2>
+					</div>
+				)}
+				<div className="products">
+					{products.length
+						? products.map((product) => {
+								return <ItemList items={product} />;
+						  })
+						: null}
+				</div>
 			</div>
-			<div className="products">
-				{products.length
-					? products.map((product) => {
-							return <ItemList items={product} />;
-					  })
-					: "Cargando..."}
-			</div>
-		</div>
+		</>
 	);
 };
 
