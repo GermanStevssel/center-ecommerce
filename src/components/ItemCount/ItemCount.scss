@@ -1,4 +1,4 @@
-.itemCount {
+.item-count {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -8,7 +8,7 @@
 		background-color: #fdc145;
 	}
 
-	.itemCount__selector {
+	.item-count__selector {
 		display: flex;
 		margin: 0.3rem auto;
 

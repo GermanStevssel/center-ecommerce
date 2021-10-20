@@ -29,7 +29,7 @@ const ItemListContainer = ({ contTitle }) => {
 	return (
 		<>
 			{loader && <Loader />}
-			<div className="itemListContainer">
+			<div className="item-list-container">
 				{!loader && (
 					<div className="title">
 						<h2>{contTitle}</h2>
