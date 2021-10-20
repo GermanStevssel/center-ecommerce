@@ -1,27 +1,28 @@
-import { Card } from "antd";
 import "./ItemListContainer.scss";
-import products from "../../products/products";
-import ItemCount from "../Counter/ItemCount";
+import catalogue from "../../products/products";
+import ItemList from "../ItemList/ItemList";
+import { useState } from "react";
 
-const { Meta } = Card;
+const ItemListContainer = ({ contTitle }) => {
+	const [products, setProducts] = useState([]);
 
-const ItemListContainer = ({ greeting }) => {
+	const task = new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(catalogue);
+		}, 2000);
+	});
+
+	task.then((result) => setProducts(result));
+
 	return (
 		<div className="itemListContainer">
 			<div className="title">
-				<h2>{greeting}</h2>
+				<h2>{contTitle}</h2>
 			</div>
 			<div className="products">
-				{products.map((product) => (
-					<Card
-						key={product.id}
-						hoverable
-						cover={<img alt={product.alt} src={product.img} />}
-					>
-						<Meta title={product.name} description={product.price} />
-						<ItemCount stock={product.stock} />
-					</Card>
-				))}
+				{products.map((product) => {
+					return <ItemList items={product} />;
+				})}
 			</div>
 		</div>
 	);

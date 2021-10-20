@@ -16,7 +16,7 @@ function App() {
 				<NavBar />
 			</Header>
 			<Content>
-				<ItemListContainer greeting="Consolas" />
+				<ItemListContainer contTitle="Consolas" />
 			</Content>
 		</Layout>
 	);
