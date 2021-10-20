@@ -1,8 +1,7 @@
-import Item from "../Item/Item";
+import Item from "../Item";
 
 const ItemList = (items) => {
 	const item = items.items;
-	console.log(item.img);
 
 	return (
 		<Item

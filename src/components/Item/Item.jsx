@@ -1,5 +1,5 @@
 import { Card } from "antd";
-import ItemCount from "../Counter/ItemCount";
+import ItemCount from "../ItemCount";
 
 const { Meta } = Card;
 
