@@ -15,8 +15,8 @@ const ItemCount = ({ stock }) => {
 	const remove = () => (count > 1 ? setCount(count - 1) : null);
 
 	return (
-		<div className="itemCount">
-			<div className="itemCount__selector">
+		<div className="item-count">
+			<div className="item-count__selector">
 				<Button onClick={remove}>
 					<MinusOutlined />
 				</Button>
