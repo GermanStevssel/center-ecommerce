@@ -1,8 +1,7 @@
 import Item from "../Item";
 
-const ItemList = (items) => {
-	const item = items.items;
-	console.log(item.id);
+const ItemList = (props) => {
+	const item = props.items;
 
 	return <Item item={item} />;
 };

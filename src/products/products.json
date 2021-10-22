@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"img": "img/products/consoles/ps5.jpg",
+		"name": "Playstation 5",
+		"alt": "Consola Playstation 5",
+		"price": "$ 215000",
+		"stock": 6
+	},
+	{
+		"id": 2,
+		"img": "img/products/consoles/ps4.jpg",
+		"name": "Playstation 4",
+		"alt": "Consola Playstation 4",
+		"price": "$ 86000",
+		"stock": 5
+	},
+	{
+		"id": 3,
+		"img": "img/products/consoles/ns.jpg",
+		"name": "Nintendo Switch",
+		"alt": "Consola Nintendo Switch",
+		"price": "$ 89000",
+		"stock": 9
+	}
+]

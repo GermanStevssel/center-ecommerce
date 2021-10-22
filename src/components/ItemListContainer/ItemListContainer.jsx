@@ -38,7 +38,7 @@ const ItemListContainer = ({ contTitle }) => {
 					<div className="products">
 						{products.length
 							? products.map((product) => {
-									return <ItemList items={product} />;
+									return <ItemList items={product} key={product.id} />;
 							  })
 							: null}
 					</div>

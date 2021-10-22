@@ -3,17 +3,12 @@ import ItemCount from "../ItemCount";
 
 const { Meta } = Card;
 
-const Item = (item) => {
-	const itemFeature = item.item;
+const Item = (props) => {
 	return (
 		<div>
-			<Card
-				key={itemFeature.id}
-				hoverable
-				cover={<img alt={itemFeature.alt} src={itemFeature.img} />}
-			>
-				<Meta title={itemFeature.name} description={itemFeature.price} />
-				<ItemCount stock={itemFeature.stock} />
+			<Card hoverable cover={<img alt={props.item.alt} src={props.item.img} />}>
+				<Meta title={props.item.name} description={props.item.price} />
+				<ItemCount stock={props.item.stock} />
 			</Card>
 		</div>
 	);
