@@ -6,7 +6,6 @@ import Loading from "../Loading";
 
 const ItemListContainer = ({ contTitle }) => {
 	const [products, setProducts] = useState([]);
-	const [loader, setLoader] = useState(true);
 
 	const getProducts = (db) =>
 		new Promise((resolve, reject) => {
@@ -16,7 +15,6 @@ const ItemListContainer = ({ contTitle }) => {
 				} else {
 					reject("No existen productos en esta categoría");
 				}
-				setLoader(false);
 			}, 2000);
 		});
 
@@ -28,21 +26,17 @@ const ItemListContainer = ({ contTitle }) => {
 
 	return (
 		<>
-			{loader ? (
-				<Loading />
-			) : (
+			{products.length ? (
 				<div className="item-list-container">
 					<div className="title">
 						<h2>{contTitle}</h2>
 					</div>
 					<div className="products">
-						{products.length
-							? products.map((product) => {
-									return <ItemList items={product} key={product.id} />;
-							  })
-							: null}
+						<ItemList items={products} />
 					</div>
 				</div>
+			) : (
+				<Loading />
 			)}
 		</>
 	);

@@ -10,15 +10,12 @@ const formatter = new Intl.NumberFormat("es-AR", {
 	minimumFractionDigits: 0,
 });
 
-const Item = (props) => {
+const Item = ({ item }) => {
 	return (
 		<div>
-			<Card hoverable cover={<img alt={props.item.alt} src={props.item.img} />}>
-				<Meta
-					title={props.item.name}
-					description={formatter.format(props.item.price)}
-				/>
-				<ItemCount stock={props.item.stock} />
+			<Card hoverable cover={<img alt={item.alt} src={item.img} />}>
+				<Meta title={item.name} description={formatter.format(item.price)} />
+				<ItemCount stock={item.stock} />
 			</Card>
 		</div>
 	);
