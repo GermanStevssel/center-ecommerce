@@ -1,10 +1,11 @@
+import { LoadingCurve, LoadingCurve2 } from "./Curves";
 import "./Loading.scss";
 
 const Loading = () => {
 	return (
 		<div className="loaderContainer">
-			<div className="loader"></div>
-			<div className="loader2"></div>
+			<LoadingCurve outer />
+			<LoadingCurve2 />
 			<div className="point"></div>
 		</div>
 	);
