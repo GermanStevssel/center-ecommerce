@@ -1,10 +1,9 @@
-import { Col, Row } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import { useState, useEffect } from "react";
 import catalogue from "../../products/products.json";
 import ItemDetail from "../ItemDetail";
 import Loading from "../Loading";
-import "./ItemDetailContainer.scss";
+import "./ItemDetailContainer.less";
 
 const ItemDetailContainer = () => {
 	const [item, setItem] = useState(null);
@@ -30,12 +29,8 @@ const ItemDetailContainer = () => {
 	return (
 		<>
 			{item ? (
-				<Content>
-					<Row className="item-detail-container">
-						<Col>
-							<ItemDetail item={item} />
-						</Col>
-					</Row>
+				<Content className="container item-detail-container">
+					<ItemDetail item={item} />
 				</Content>
 			) : (
 				<Loading />

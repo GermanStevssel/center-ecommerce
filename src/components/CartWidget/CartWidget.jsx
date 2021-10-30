@@ -1,5 +1,5 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import "./CartWidget.scss";
+import "./CartWidget.less";
 
 const CartWidget = ({ count }) => {
 	return (

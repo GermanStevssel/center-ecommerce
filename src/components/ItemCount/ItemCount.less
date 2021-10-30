@@ -1,19 +1,27 @@
 .item-count {
 	display: flex;
 	flex-direction: column;
-	width: 90%;
+	width: 100%;
+	align-items: center;
 
 	.ant-btn-primary {
 		border-color: #fdc145;
 		background-color: #fdc145;
+		height: 50px;
+		width: 129px;
+		font-size: 1rem;
+		border: solid 1px transparent;
 	}
 
 	.item-count__selector {
 		display: flex;
 		margin: 0.3rem auto;
+		border: 1px solid #fdc145;
+		width: 129px;
 
 		.ant-btn {
-			height: 25px;
+			height: 50px;
+			border: none;
 
 			.anticon {
 				vertical-align: 0;
@@ -24,13 +32,13 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			height: 25px;
+			height: 50px;
 			padding: 4px 15px;
+			background-color: #fff;
 			border-top: 1px solid transparent;
 			border-bottom: 1px solid transparent;
-			box-shadow: 0 2px 0 rgb(0, 0, 0, 2%);
 			font-weight: 500;
-			font-size: calc(0.2rem + calc(0.3rem + 0.5vw));
+			font-size: 1rem;
 		}
 	}
 }

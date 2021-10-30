@@ -3,21 +3,21 @@ import { formatter } from "../Item/Item";
 import ItemCount from "../ItemCount";
 import "./ItemDetail.scss";
 
-const ItemDetail = (props) => {
-	console.log(props.item.price);
+const ItemDetail = ({ item }) => {
+	console.log(item.price);
 	return (
 		<>
-			<Row gutter={8}>
+			<Row className="item-detail" gutter={8}>
 				<Col sm={20} md={12} lg={10}>
-					<Image width="auto" src={props.item.img} />
+					<Image width="auto" src={item.img} />
 				</Col>
-				<Col sm={20} md={8} lg={8}>
-					<Card title={props.item.name}>
-						<p>Precio: {formatter.format(props.item.price)}</p>
+				<Col sm={20} md={8} lg={10}>
+					<Card title={item.name}>
+						<p>Precio: {formatter.format(item.price)}</p>
 					</Card>
 				</Col>
-				<Col sm={20} md={8} lg={6}>
-					<ItemCount stock={props.item.stock}></ItemCount>
+				<Col sm={20} md={8} lg={4}>
+					<ItemCount stock={item.stock}></ItemCount>
 				</Col>
 			</Row>
 		</>

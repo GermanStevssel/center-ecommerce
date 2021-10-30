@@ -5,7 +5,7 @@ import {
 	MinusOutlined,
 	PlusOutlined,
 } from "@ant-design/icons";
-import "./ItemCount.scss";
+import "./ItemCount.less";
 
 const ItemCount = ({ stock }) => {
 	const [count, setCount] = useState(1);
@@ -26,7 +26,7 @@ const ItemCount = ({ stock }) => {
 				</Button>
 			</div>
 			<Button type="primary">
-				Agregar al carrito <ShoppingCartOutlined />
+				Agregar <ShoppingCartOutlined />
 			</Button>
 		</div>
 	);
