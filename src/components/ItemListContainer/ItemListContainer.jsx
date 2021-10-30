@@ -3,9 +3,10 @@ import catalogue from "../../products/products";
 import ItemList from "../ItemList";
 import { useState, useEffect } from "react";
 import Loading from "../Loading";
+import { Content } from "antd/lib/layout/layout";
 
 const ItemListContainer = ({ contTitle }) => {
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState(null);
 
 	const getProducts = (db) =>
 		new Promise((resolve, reject) => {
@@ -26,15 +27,17 @@ const ItemListContainer = ({ contTitle }) => {
 
 	return (
 		<>
-			{products.length ? (
-				<div className="item-list-container">
-					<div className="title">
-						<h2>{contTitle}</h2>
+			{products?.length ? (
+				<Content>
+					<div className="item-list-container">
+						<div className="title">
+							<h2>{contTitle}</h2>
+						</div>
+						<div className="products">
+							<ItemList items={products} />
+						</div>
 					</div>
-					<div className="products">
-						<ItemList items={products} />
-					</div>
-				</div>
+				</Content>
 			) : (
 				<Loading />
 			)}

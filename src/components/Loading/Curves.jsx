@@ -39,8 +39,6 @@ export const LoadingCurve = styled.div`
 export const LoadingCurve2 = styled(LoadingCurve)`
 	width: 15%;
 	height: 15%;
-	border-top-color: ${(props) => (props.outer ? "#fdc145" : "#66fbfb")};
-	border-left-color: ${(props) => (props.outer ? "#fdc145" : "#66fbfb")};
 	-webkit-animation: ${rotatel} 1.5s linear infinite;
 	-moz-animation: ${rotatel} 1.5s linear infinite;
 	-o-animation: ${rotatel} 1.5s linear infinite;

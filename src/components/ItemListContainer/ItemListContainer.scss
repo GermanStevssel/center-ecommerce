@@ -29,6 +29,10 @@
 		width: 80%;
 		margin: 1rem auto;
 
+		@media (max-width: 992px) {
+			grid-gap: 2vw;
+		}
+
 		@media (max-width: 768px) {
 			display: grid;
 			grid-template-columns: 1fr;
