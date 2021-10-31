@@ -1,9 +1,7 @@
-import { Content } from "antd/lib/layout/layout";
 import { useState, useEffect } from "react";
 import catalogue from "../../products/products.json";
 import ItemDetail from "../ItemDetail";
 import Loading from "../Loading";
-import "./ItemDetailContainer.less";
 
 const ItemDetailContainer = () => {
 	const [item, setItem] = useState(null);
@@ -26,17 +24,7 @@ const ItemDetailContainer = () => {
 			.catch((err) => console.log(err));
 	}, []);
 
-	return (
-		<>
-			{item ? (
-				<Content className="container item-detail-container">
-					<ItemDetail item={item} />
-				</Content>
-			) : (
-				<Loading />
-			)}
-		</>
-	);
+	return <>{item ? <ItemDetail item={item} /> : <Loading />}</>;
 };
 
 export default ItemDetailContainer;

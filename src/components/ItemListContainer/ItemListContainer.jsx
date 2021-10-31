@@ -1,4 +1,4 @@
-import "./ItemListContainer.scss";
+import "./ItemListContainer.less";
 import catalogue from "../../products/products";
 import ItemList from "../ItemList";
 import { useState, useEffect } from "react";

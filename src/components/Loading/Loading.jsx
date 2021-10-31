@@ -1,5 +1,5 @@
 import { LoadingCurve, LoadingCurve2 } from "./Curves";
-import "./Loading.scss";
+import "./Loading.less";
 
 const Loading = () => {
 	return (
