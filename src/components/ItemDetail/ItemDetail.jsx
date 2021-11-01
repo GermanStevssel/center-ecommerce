@@ -1,7 +1,9 @@
-import { Row, Col, Image, Card } from "antd";
+import { Row, Col, Image, Card, Typography } from "antd";
 import { formatter } from "../Item/Item";
 import ItemCount from "../ItemCount";
 import "./ItemDetail.less";
+
+const { Title, Text, Paragraph } = Typography;
 
 const ItemDetail = ({ item }) => {
 	console.log(item.price);
@@ -13,10 +15,14 @@ const ItemDetail = ({ item }) => {
 				</Col>
 				<Col sm={20} md={8} lg={9}>
 					<Card title={item.name}>
-						<p className="item-price">Precio: {formatter.format(item.price)}</p>
-						<p>
-							<span>Descripción:</span> {item.desc}
-						</p>
+						<Typography>
+							<Title className="item-price">
+								Precio: {formatter.format(item.price)}
+							</Title>
+							<Paragraph>
+								<Text strong>Descripción:</Text> {item.desc}
+							</Paragraph>
+						</Typography>
 					</Card>
 				</Col>
 				<Col sm={20} md={8} lg={5}>

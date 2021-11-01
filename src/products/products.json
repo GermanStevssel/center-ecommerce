@@ -6,22 +6,30 @@
 		"desc": "Ya disponible en Stock! Entrega inmediata en 24hs hábiles en AMBA. Con mochila de regalo! PlayStation 5 experimentá una carga increíblemente rápida con un SSD de ultra alta velocidad, y descubrí una experiencia de juego más intensa e inmersiva con el innovador control PS5, que cuenta con respuesta háptica y efectos de gatillo dinámicos. El control inalámbrico DualSense también incluye un micrófono integrado y el nuevo botón crear, todo en un diseño cómodo e icónico.",
 		"alt": "Consola Playstation 5",
 		"price": "215000",
+		"discount": false,
+		"installments": 0,
 		"stock": 6
 	},
 	{
 		"id": 2,
 		"img": "img/products/consoles/ps4.jpg",
 		"name": "Playstation 4",
+		"desc": "El diseño nuevo y delgado de la consola PlayStation®4 te transporta a viajes extraordinarios a traves de mundos de juegos nuevos y atrapantes, y te lleva a una comunidad de juegos muy unida. La consola PlayStation® 4, ahora mas liviana y mas delgada, tiene un disco duro de 1 TB para que disfrutes los mejores juegos y programas de television, tu musica favorita y mucho mas. El paquete PlayStation MEGA PACK ofrece juegos increibles, para un entretenimiento sin fin con poderosos graficos y alta velocidad, personalizacin inteligente, capacidades sociales sumamente integradas e innovadoras funciones de pantalla secundaria.",
 		"alt": "Consola Playstation 4",
 		"price": "86000",
+		"discount": false,
+		"installments": 0,
 		"stock": 5
 	},
 	{
 		"id": 3,
 		"img": "img/products/consoles/ns.jpg",
 		"name": "Nintendo Switch",
+		"desc": "La consola Nintendo Switch está diseñada para cualquier estilo de vida, transformándose rápidamente de una consola casera a una consola portátil. Con tu consola Switch tendrás entretenimiento asegurado todos los días. Su tecnología fue creada para poner nuevos retos tanto a jugadores principiantes como expertos.",
 		"alt": "Consola Nintendo Switch",
 		"price": "89000",
+		"discount": false,
+		"installments": 0,
 		"stock": 9
 	}
 ]
