@@ -23,7 +23,6 @@ const NavBar = () => {
 	};
 
 	const current = state;
-	console.log(current);
 
 	return (
 		<nav>

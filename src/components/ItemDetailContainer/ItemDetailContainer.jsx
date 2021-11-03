@@ -8,9 +8,6 @@ const ItemDetailContainer = () => {
 	const { itemId } = useParams();
 	const [item, setItem] = useState(null);
 
-	console.log(item);
-	console.log("2");
-
 	const getItem = (item) =>
 		new Promise((resolve, reject) => {
 			setTimeout(() => {
