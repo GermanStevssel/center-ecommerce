@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import catalogue from "../../products/products.json";
 import ItemDetail from "../ItemDetail";
 import Loading from "../Loading";
 
 const ItemDetailContainer = () => {
+	const { itemId } = useParams();
 	const [item, setItem] = useState(null);
+
+	console.log(item);
+	console.log("2");
 
 	const getItem = (item) =>
 		new Promise((resolve, reject) => {
 			setTimeout(() => {
 				if (item) {
-					console.log(item);
 					resolve(item);
 				} else {
 					reject("No existe el producto seleccionado");
@@ -20,9 +24,9 @@ const ItemDetailContainer = () => {
 
 	useEffect(() => {
 		getItem(catalogue)
-			.then((result) => setItem(result[0])) // Aca ira algun parametro dinámico que selecciono el id del producto que deseo
+			.then((result) => setItem(result.find((item) => item.nameId === itemId)))
 			.catch((err) => console.log(err));
-	}, []);
+	}, [itemId]);
 
 	return <>{item ? <ItemDetail item={item} /> : <Loading />}</>;
 };

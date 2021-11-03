@@ -1,4 +1,5 @@
 import { Badge, Card, Typography } from "antd";
+import { Link } from "react-router-dom";
 
 const { Meta } = Card;
 const { Text } = Typography;
@@ -13,19 +14,21 @@ export const formatter = new Intl.NumberFormat("es-AR", {
 const Item = ({ item }) => {
 	return (
 		<Badge.Ribbon text="Envío gratis">
-			<Card hoverable cover={<img alt={item.alt} src={item.img} />}>
-				<Typography>
-					<Text>
-						Stock:{" "}
-						{item.stock > 1 ? (
-							<Text type="success">Disponible</Text>
-						) : (
-							<Text type="warning">Ultima unidad</Text>
-						)}
-					</Text>
-				</Typography>
-				<Meta title={item.name} description={formatter.format(item.price)} />
-			</Card>
+			<Link to={`/products/${item.nameId}`}>
+				<Card hoverable cover={<img alt={item.alt} src={item.img} />}>
+					<Typography>
+						<Text>
+							Stock:{" "}
+							{item.stock > 1 ? (
+								<Text type="success">Disponible</Text>
+							) : (
+								<Text type="warning">Ultima unidad</Text>
+							)}
+						</Text>
+					</Typography>
+					<Meta title={item.name} description={formatter.format(item.price)} />
+				</Card>
+			</Link>
 		</Badge.Ribbon>
 	);
 };

@@ -6,7 +6,6 @@ import "./ItemDetail.less";
 const { Title, Text, Paragraph } = Typography;
 
 const ItemDetail = ({ item }) => {
-	console.log(item.price);
 	return (
 		<>
 			<Row className="container item-detail" gutter={8}>
