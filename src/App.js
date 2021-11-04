@@ -17,7 +17,7 @@ function App() {
 				</Header>
 				<Switch>
 					<Route exact path="/">
-						<ItemListContainer contTitle="Consolas" />
+						<ItemListContainer contTitle="Productos" />
 					</Route>
 					<Route exact path="/category/:categoryId">
 						<CategoryListContainer />

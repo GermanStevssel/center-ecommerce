@@ -40,7 +40,7 @@ const NavBar = () => {
 				</Menu.Item>
 
 				<Menu.Item key="Consolas" icon={<AppstoreOutlined />}>
-					<NavLink to="category/consolas">Consolas</NavLink>
+					<NavLink to="/category/consolas">Consolas</NavLink>
 				</Menu.Item>
 
 				<SubMenu
@@ -50,18 +50,18 @@ const NavBar = () => {
 				>
 					<Menu.ItemGroup title="Consolas">
 						<Menu.Item key="Playstation">
-							<NavLink to="category/playstation">Playstation</NavLink>
+							<NavLink to="/category/playstation">Playstation</NavLink>
 						</Menu.Item>
 						<Menu.Item key="Xbox">
-							<NavLink to="category/xbox">Xbox</NavLink>
+							<NavLink to="/category/xbox">Xbox</NavLink>
 						</Menu.Item>
 						<Menu.Item key="Switch">
-							<NavLink to="category/switch">Switch</NavLink>
+							<NavLink to="/category/switch">Switch</NavLink>
 						</Menu.Item>
 					</Menu.ItemGroup>
 					<Menu.ItemGroup title="PC">
 						<Menu.Item key="PC">
-							<NavLink to="category/pc">PC</NavLink>
+							<NavLink to="/category/pc">PC</NavLink>
 						</Menu.Item>
 					</Menu.ItemGroup>
 				</SubMenu>
@@ -71,20 +71,20 @@ const NavBar = () => {
 					title="Accesorios"
 				>
 					<Menu.Item key="onEar">
-						<NavLink to="category/auriculares-on-ear">
+						<NavLink to="/category/auriculares-on-ear">
 							Auriculare On ear
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="inEar">
-						<NavLink to="category/auriculares-in-ear">
+						<NavLink to="/category/auriculares-in-ear">
 							Auriculares In ear
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="Joysticks">
-						<NavLink to="category/joysticks">Joysticks</NavLink>
+						<NavLink to="/category/joysticks">Joysticks</NavLink>
 					</Menu.Item>
 					<Menu.Item key="Teclados">
-						<NavLink to="category/teclados">Teclados</NavLink>
+						<NavLink to="/category/sillas-gamer">Sillas Gamer</NavLink>
 					</Menu.Item>
 				</SubMenu>
 				<Menu.Item key="Acerca de" icon={<TeamOutlined />}>
