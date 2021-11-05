@@ -50,18 +50,13 @@ const NavBar = () => {
 				>
 					<Menu.ItemGroup title="Consolas">
 						<Menu.Item key="Playstation">
-							<NavLink to="/category/playstation">Playstation</NavLink>
+							<NavLink to="/category/juegos-playstation">Playstation</NavLink>
 						</Menu.Item>
 						<Menu.Item key="Xbox">
-							<NavLink to="/category/xbox">Xbox</NavLink>
+							<NavLink to="/category/juegos-xbox">Xbox</NavLink>
 						</Menu.Item>
 						<Menu.Item key="Switch">
-							<NavLink to="/category/switch">Switch</NavLink>
-						</Menu.Item>
-					</Menu.ItemGroup>
-					<Menu.ItemGroup title="PC">
-						<Menu.Item key="PC">
-							<NavLink to="/category/pc">PC</NavLink>
+							<NavLink to="/category/juegos-switch">Switch</NavLink>
 						</Menu.Item>
 					</Menu.ItemGroup>
 				</SubMenu>
@@ -70,15 +65,8 @@ const NavBar = () => {
 					icon={<ShoppingOutlined />}
 					title="Accesorios"
 				>
-					<Menu.Item key="onEar">
-						<NavLink to="/category/auriculares-on-ear">
-							Auriculare On ear
-						</NavLink>
-					</Menu.Item>
-					<Menu.Item key="inEar">
-						<NavLink to="/category/auriculares-in-ear">
-							Auriculares In ear
-						</NavLink>
+					<Menu.Item key="Auriculares">
+						<NavLink to="/category/auriculares">Auriculares</NavLink>
 					</Menu.Item>
 					<Menu.Item key="Joysticks">
 						<NavLink to="/category/joysticks">Joysticks</NavLink>

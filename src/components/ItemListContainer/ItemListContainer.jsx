@@ -4,6 +4,7 @@ import ItemList from "../ItemList";
 import { useState, useEffect } from "react";
 import Loading from "../Loading";
 import { Content } from "antd/lib/layout/layout";
+import { Carousel } from "antd";
 
 const ItemListContainer = ({ contTitle }) => {
 	const [products, setProducts] = useState(null);
@@ -29,6 +30,14 @@ const ItemListContainer = ({ contTitle }) => {
 		<>
 			{products?.length ? (
 				<Content>
+					<Carousel autoplay>
+						<div>
+							<img src="/img/carousel/banner-fifa22.jpg" alt="Banner FIFA22" />
+						</div>
+						<div>
+							<img src="/img/carousel/banner-ps5.jpg" alt="Banner PS5" />
+						</div>
+					</Carousel>
 					<div className="item-list-container">
 						<div className="title">
 							<h2>{contTitle}</h2>
