@@ -29,7 +29,7 @@ const ItemListContainer = ({ contTitle }) => {
 	return (
 		<>
 			{products?.length ? (
-				<Content>
+				<>
 					<Carousel autoplay>
 						<div>
 							<img src="/img/carousel/banner-fifa22.jpg" alt="Banner FIFA22" />
@@ -38,15 +38,17 @@ const ItemListContainer = ({ contTitle }) => {
 							<img src="/img/carousel/banner-ps5.jpg" alt="Banner PS5" />
 						</div>
 					</Carousel>
-					<div className="item-list-container">
-						<div className="title">
-							<h2>{contTitle}</h2>
+					<Content>
+						<div className="item-list-container">
+							<div className="title">
+								<h2>{contTitle}</h2>
+							</div>
+							<div className="products">
+								<ItemList items={products} />
+							</div>
 						</div>
-						<div className="products">
-							<ItemList items={products} />
-						</div>
-					</div>
-				</Content>
+					</Content>
+				</>
 			) : (
 				<Loading />
 			)}
