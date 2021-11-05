@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dependencies
+
+You could install the dependencies used in this project with:
+
+### `npm install`
+
+To install Ant Design, Craco, Craco Less, Styled Componentes and React Router Dom
+
 ## Available Scripts
 
 In the project directory, you can run:

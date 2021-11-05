@@ -32,10 +32,18 @@ const ItemListContainer = ({ contTitle }) => {
 				<>
 					<Carousel autoplay>
 						<div>
-							<img src="/img/carousel/banner-fifa22.jpg" alt="Banner FIFA22" />
+							<img
+								className="img-banner"
+								src="/img/carousel/banner-fifa22.jpg"
+								alt="Banner FIFA22"
+							/>
 						</div>
 						<div>
-							<img src="/img/carousel/banner-ps5.jpg" alt="Banner PS5" />
+							<img
+								className="img-banner"
+								src="/img/carousel/banner-ps5.jpg"
+								alt="Banner PS5"
+							/>
 						</div>
 					</Carousel>
 					<Content>
