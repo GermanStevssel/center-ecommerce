@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import "./ItemCount.less";
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, onAdd }) => {
 	const [count, setCount] = useState(1);
 
 	const add = () => (count < stock ? setCount(count + 1) : null);
@@ -25,7 +25,12 @@ const ItemCount = ({ stock }) => {
 					<PlusOutlined />
 				</Button>
 			</div>
-			<Button type="primary">
+			<Button
+				type="primary"
+				onClick={() => {
+					onAdd(count);
+				}}
+			>
 				Agregar <ShoppingCartOutlined />
 			</Button>
 		</div>

@@ -50,6 +50,7 @@ const ItemListContainer = ({ contTitle }) => {
 						<div className="item-list-container">
 							<div className="title">
 								<h2>{contTitle}</h2>
+								<span>{contTitle}</span>
 							</div>
 							<div className="products">
 								<ItemList items={products} />

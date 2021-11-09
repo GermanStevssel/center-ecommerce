@@ -7,13 +7,17 @@
 	flex-direction: column;
 
 	.title {
+		width: 100%;
+		margin: 2rem auto;
 		text-align: center;
+		position: relative;
 
 		h2 {
-			color: rgba(0, 0, 0, 0.3);
-			letter-spacing: 1.1rem;
+			position: relative;
+			color: rgb(0, 0, 0);
+			letter-spacing: 0.1rem;
 			font-weight: 500;
-			font-size: 5.5rem;
+			font-size: 3.5rem;
 			margin: auto;
 			padding: 0;
 
@@ -21,6 +25,19 @@
 				font-size: calc(2rem + 5vw);
 				letter-spacing: 1vw;
 			}
+		}
+
+		span {
+			display: block;
+			color: rgba(0, 0, 0, 0.1);
+			position: absolute;
+			top: -12px;
+			letter-spacing: 1.5rem;
+			font-weight: 500;
+			font-size: 5rem;
+			text-transform: uppercase;
+			margin-top: -15px;
+			width: 100%;
 		}
 	}
 
