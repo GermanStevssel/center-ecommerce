@@ -13,7 +13,7 @@ const ItemDetail = ({ item }) => {
 	const [qty, setQty] = useState(null);
 
 	const onAdd = (quantityToAdd) => {
-		if (quantityToAdd >= 1) {
+		if (quantityToAdd >= 1 && item.stock > 0) {
 			setQty(quantityToAdd);
 			setShow(!show);
 			item.stock -= quantityToAdd;
