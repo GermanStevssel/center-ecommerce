@@ -81,7 +81,9 @@ const NavBar = () => {
 					</a>
 				</Menu.Item>
 			</Menu>
-			<CartWidget count="2" />
+			<Link to="/cart">
+				<CartWidget count="2" />
+			</Link>
 		</nav>
 	);
 };

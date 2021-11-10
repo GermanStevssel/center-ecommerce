@@ -1,4 +1,5 @@
 import { Row, Col, Image, Card, Typography, Divider, Button } from "antd";
+import { CloseOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { formatter } from "../Item/Item";
@@ -15,7 +16,12 @@ const ItemDetail = ({ item }) => {
 		if (quantityToAdd >= 1) {
 			setQty(quantityToAdd);
 			setShow(!show);
+			item.stock -= quantityToAdd;
 		}
+	};
+
+	const closeCart = () => {
+		setShow(!show);
 	};
 
 	return (
@@ -31,6 +37,13 @@ const ItemDetail = ({ item }) => {
 								Precio: {formatter.format(item.price)}
 							</Title>
 							<Paragraph>
+								(
+								{item.stock === 1
+									? `${item.stock} unidad disponible`
+									: `${item.stock} unidades disponibles`}
+								)
+							</Paragraph>
+							<Paragraph>
 								<Text strong>Descripción:</Text> {item.desc}
 							</Paragraph>
 						</Typography>
@@ -45,7 +58,11 @@ const ItemDetail = ({ item }) => {
 							<Row>
 								<Col className="item-cart__title">
 									<Title level={3}>Mi Carrito</Title>
-									<Text className="btn-cerrar-cart">X</Text>
+									<Button
+										icon={<CloseOutlined />}
+										className="btn-cerrar-cart"
+										onClick={closeCart}
+									></Button>
 								</Col>
 							</Row>
 							<Divider />
