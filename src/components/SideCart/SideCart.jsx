@@ -1,19 +1,19 @@
-import { Button, Col, Divider, Image, Row, Typography } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
-import { Content } from "antd/lib/layout/layout";
-import { Link } from "react-router-dom";
+import { Button, Col, Divider, Image, Row, Typography } from "antd";
 import { useCart } from "../../context/CartContext";
-import "./Cart.less";
+import { Link } from "react-router-dom";
 import { formatter } from "../Item/Item";
+import "./SideCart.less";
 
 const { Title, Text, Paragraph } = Typography;
 
-const Cart = () => {
-	const { cart, closeCart } = useCart();
+const SideCart = () => {
+	const { cart, show, closeCart } = useCart();
 
-	console.log(cart?.lenght);
+	console.log(show);
+	console.log(cart);
 
-	return cart?.length ? (
+	return show ? (
 		<div className="overlay">
 			<Col className="item-detail-cart">
 				<Row>
@@ -73,26 +73,7 @@ const Cart = () => {
 				</Row>
 			</Col>
 		</div>
-	) : (
-		<Content className="container cart">
-			<Row>
-				<Col>
-					<Typography>
-						<Title>Oops! Tu carrito esta vacío!</Title>
-					</Typography>
-				</Col>
-			</Row>
-			<Row>
-				<Col>
-					<Link to="/">
-						<Button type="primary" className="btn-buscar-productos">
-							Buscar productos
-						</Button>
-					</Link>
-				</Col>
-			</Row>
-		</Content>
-	);
+	) : null;
 };
 
-export default Cart;
+export default SideCart;
