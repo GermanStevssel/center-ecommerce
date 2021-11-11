@@ -40,8 +40,11 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 		setShow(!show);
 	};
 
+	console.log(cart);
 	return (
-		<CartContext.Provider value={{ addToCart, removeItem, clear, closeCart }}>
+		<CartContext.Provider
+			value={{ cart, show, addToCart, removeItem, clear, closeCart }}
+		>
 			{children}
 		</CartContext.Provider>
 	);

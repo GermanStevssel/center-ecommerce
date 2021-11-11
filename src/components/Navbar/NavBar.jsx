@@ -9,6 +9,7 @@ import {
 	TeamOutlined,
 } from "@ant-design/icons";
 import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import logo from "../../img/logo/logo-xs-n.png";
 import "./NavBar.less";
 import CartWidget from "../CartWidget";
@@ -17,6 +18,7 @@ const { SubMenu } = Menu;
 
 const NavBar = () => {
 	const [state, setState] = useState("Home");
+	const { cart } = useCart();
 
 	const handleClick = (e) => {
 		setState(e.key);
@@ -82,7 +84,7 @@ const NavBar = () => {
 				</Menu.Item>
 			</Menu>
 			<Link to="/cart">
-				<CartWidget count="2" />
+				<CartWidget count={cart.length} />
 			</Link>
 		</nav>
 	);
