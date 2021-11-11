@@ -15,13 +15,13 @@ const SideCart = () => {
 
 	return show ? (
 		<div className="overlay">
-			<Col className="item-detail-cart">
+			<Col className="item-detail-sidecart">
 				<Row>
-					<Col className="item-cart__title">
+					<Col className="item-sidecart__title">
 						<Title level={3}>Mi Carrito</Title>
 						<Button
 							icon={<CloseOutlined />}
-							className="btn-cerrar-cart"
+							className="btn-cerrar-sidecart"
 							onClick={() => {
 								closeCart();
 							}}
@@ -32,7 +32,7 @@ const SideCart = () => {
 				<Row>
 					{cart?.map((p) => {
 						return (
-							<Col className="item-detail-cart__items">
+							<Col className="item-detail-sidecart__items" key={p.id}>
 								<Image width="30%" src={p.img} alt={p.alt} />
 								<Typography>
 									<Paragraph>
@@ -46,7 +46,7 @@ const SideCart = () => {
 						);
 					})}
 				</Row>
-				<Row className="total-cart">
+				<Row className="total-sidecart">
 					<Col className="total">
 						<Divider />
 						<Paragraph>

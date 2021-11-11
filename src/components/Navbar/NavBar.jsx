@@ -18,7 +18,7 @@ const { SubMenu } = Menu;
 
 const NavBar = () => {
 	const [state, setState] = useState("Home");
-	const { cart } = useCart();
+	const { cart, show, setShow } = useCart();
 
 	const handleClick = (e) => {
 		setState(e.key);
@@ -83,9 +83,12 @@ const NavBar = () => {
 					</a>
 				</Menu.Item>
 			</Menu>
-			<Link to="/cart">
-				<CartWidget count={cart.length} />
-			</Link>
+			<CartWidget
+				count={cart.length}
+				onClick={() => {
+					setShow(!show);
+				}}
+			/>
 		</nav>
 	);
 };

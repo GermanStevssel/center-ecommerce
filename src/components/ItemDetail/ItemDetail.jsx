@@ -6,16 +6,6 @@ import "./ItemDetail.less";
 const { Title, Text, Paragraph } = Typography;
 
 const ItemDetail = ({ item }) => {
-	// const [qty, setQty] = useState(null);
-
-	// const onAdd = (quantityToAdd) => {
-	// 	if (quantityToAdd >= 1 && item.stock > 0) {
-	// 		setQty(quantityToAdd);
-	// 		setShow(!show);
-	// 		item.stock -= quantityToAdd;
-	// 	}
-	// };
-
 	return (
 		<>
 			<Row className="container item-detail" gutter={8}>

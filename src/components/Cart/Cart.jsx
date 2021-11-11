@@ -9,31 +9,26 @@ import { formatter } from "../Item/Item";
 const { Title, Text, Paragraph } = Typography;
 
 const Cart = () => {
-	const { cart, closeCart } = useCart();
+	const { cart, removeItem, clear } = useCart();
 
 	console.log(cart?.lenght);
 
 	return cart?.length ? (
-		<div className="overlay">
-			<Col className="item-detail-cart">
+		<div className="container">
+			<Col>
 				<Row>
 					<Col className="item-cart__title">
-						<Title level={3}>Mi Carrito</Title>
-						<Button
-							icon={<CloseOutlined />}
-							className="btn-cerrar-cart"
-							onClick={() => {
-								closeCart();
-							}}
-						></Button>
+						<Title level={2}>Mi Carrito</Title>
 					</Col>
 				</Row>
 				<Divider />
-				<Row>
-					{cart?.map((p) => {
-						return (
-							<Col className="item-detail-cart__items">
-								<Image width="30%" src={p.img} alt={p.alt} />
+				{cart?.map((p) => {
+					return (
+						<Row className="item-detail-cart__items" key={p.id}>
+							<Col lg={4}>
+								<Image width="auto" src={p.img} alt={p.alt} />
+							</Col>
+							<Col lg={18}>
 								<Typography>
 									<Paragraph>
 										<Text strong>{p.name}</Text>
@@ -43,9 +38,18 @@ const Cart = () => {
 									</Paragraph>
 								</Typography>
 							</Col>
-						);
-					})}
-				</Row>
+							<Col lg={2}>
+								<Button
+									icon={<CloseOutlined />}
+									className="btn-cerrar-cart"
+									onClick={() => {
+										removeItem(p.id);
+									}}
+								></Button>
+							</Col>
+						</Row>
+					);
+				})}
 				<Row className="total-cart">
 					<Col className="total">
 						<Divider />
@@ -57,28 +61,28 @@ const Cart = () => {
 								})
 							)}
 						</Paragraph>
-						<Row className="total-btns">
-							<Col>
-								<Link to="/">
-									<Button type="primary">Seguir comprando</Button>
-								</Link>
-							</Col>
-							<Col>
-								<Link to="/cart">
-									<Button type="primary">Ir al Carrito</Button>
-								</Link>
-							</Col>
-						</Row>
 					</Col>
 				</Row>
 			</Col>
+			<Row>
+				<Col>
+					<Link to="/">
+						<Button type="primary">Seguir comprando</Button>
+					</Link>
+				</Col>
+				<Col className="btn-remove">
+					<Button type="primary" onClick={clear}>
+						Remover Todo
+					</Button>
+				</Col>
+			</Row>
 		</div>
 	) : (
 		<Content className="container cart">
 			<Row>
 				<Col>
 					<Typography>
-						<Title>Oops! Tu carrito esta vacío!</Title>
+						<Title>Oops! Tu carrito está vacío!</Title>
 					</Typography>
 				</Col>
 			</Row>

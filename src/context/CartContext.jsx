@@ -26,8 +26,8 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 		setShow(!show);
 	};
 
-	const removeItem = (item) => {
-		const newCart = cart.filter((product) => product.id !== item.id);
+	const removeItem = (id) => {
+		const newCart = cart.filter((product) => product.id !== id);
 
 		setCart(newCart);
 	};
