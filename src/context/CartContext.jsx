@@ -7,7 +7,7 @@ export const useCart = () => useContext(CartContext);
 
 export const CartContextProvider = ({ defaultValue = [], children }) => {
 	const [cart, setCart] = useState(defaultValue);
-	const [show, setShow] = useState(true);
+	const [show, setShow] = useState(false);
 
 	const addToCart = (item, quantity) => {
 		if (quantity >= 1 && item.stock > 0) {
@@ -22,8 +22,8 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 			} else {
 				setCart([...cart, product]);
 			}
-			console.log(cart);
 		}
+		setShow(!show);
 	};
 
 	const removeItem = (item) => {
