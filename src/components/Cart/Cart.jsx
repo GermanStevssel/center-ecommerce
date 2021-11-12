@@ -11,8 +11,6 @@ const { Title, Text, Paragraph } = Typography;
 const Cart = () => {
 	const { cart, removeItem, clear } = useCart();
 
-	console.log(cart?.lenght);
-
 	return cart?.length ? (
 		<div className="container cart">
 			<Row>

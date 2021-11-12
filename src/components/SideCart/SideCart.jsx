@@ -8,10 +8,7 @@ import "./SideCart.less";
 const { Title, Text, Paragraph } = Typography;
 
 const SideCart = () => {
-	const { cart, show, closeCart } = useCart();
-
-	console.log(show);
-	console.log(cart);
+	const { cart, show, switchSideCart } = useCart();
 
 	return show ? (
 		<div className="overlay">
@@ -23,7 +20,7 @@ const SideCart = () => {
 							icon={<CloseOutlined />}
 							className="btn-cerrar-sidecart"
 							onClick={() => {
-								closeCart();
+								switchSideCart();
 							}}
 						></Button>
 					</Col>
@@ -51,16 +48,24 @@ const SideCart = () => {
 						<Divider />
 						<Paragraph>
 							<Text strong>Total:</Text>{" "}
-							{formatter.format(
-								cart?.reduce((p) => {
-									return p.quantity * p.price;
-								})
-							)}
+							{cart.lenght &&
+								formatter.format(
+									cart?.reduce((p) => {
+										return p.quantity * p.price;
+									})
+								)}
 						</Paragraph>
 						<Row className="total-btns">
 							<Col>
 								<Link to="/">
-									<Button type="primary">Seguir comprando</Button>
+									<Button
+										type="primary"
+										onClick={() => {
+											switchSideCart();
+										}}
+									>
+										Seguir comprando
+									</Button>
 								</Link>
 							</Col>
 							<Col>
@@ -68,7 +73,7 @@ const SideCart = () => {
 									<Button
 										type="primary"
 										onClick={() => {
-											closeCart();
+											switchSideCart();
 										}}
 									>
 										Ir al Carrito

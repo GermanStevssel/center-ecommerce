@@ -23,7 +23,7 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 				setCart([...cart, product]);
 			}
 		}
-		setShow(!show);
+		switchSideCart();
 	};
 
 	const removeItem = (id) => {
@@ -36,14 +36,14 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 		setCart([]);
 	};
 
-	const closeCart = () => {
+	const switchSideCart = () => {
 		setShow(!show);
 	};
 
 	console.log(cart);
 	return (
 		<CartContext.Provider
-			value={{ cart, show, addToCart, removeItem, clear, closeCart }}
+			value={{ cart, show, addToCart, removeItem, clear, switchSideCart }}
 		>
 			{children}
 		</CartContext.Provider>
