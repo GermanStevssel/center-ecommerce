@@ -57,9 +57,9 @@ const Cart = () => {
 					<Paragraph>
 						<Text strong>Total:</Text>{" "}
 						{formatter.format(
-							cart?.reduce((p) => {
-								return p.quantity * p.price;
-							})
+							cart?.reduce((amount, p) => {
+								return amount + p.quantity * p.price;
+							}, 0)
 						)}
 					</Paragraph>
 				</Col>

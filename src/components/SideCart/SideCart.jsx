@@ -27,32 +27,39 @@ const SideCart = () => {
 				</Row>
 				<Divider />
 				<Row>
-					{cart?.map((p) => {
-						return (
-							<Col className="item-detail-sidecart__items" key={p.id}>
-								<Image width="30%" src={p.img} alt={p.alt} />
-								<Typography>
-									<Paragraph>
-										<Text strong>{p.name}</Text>
-									</Paragraph>
-									<Paragraph>
-										{p.quantity} x {formatter.format(p.price)}
-									</Paragraph>
-								</Typography>
-							</Col>
-						);
-					})}
+					{cart?.length > 0 ? (
+						cart?.map((p) => {
+							return (
+								<Col className="item-detail-sidecart__items" key={p.id}>
+									<Image width="30%" src={p.img} alt={p.alt} />
+									<Typography>
+										<Paragraph>
+											<Text strong>{p.name}</Text>
+										</Paragraph>
+										<Paragraph>
+											{p.quantity} x {formatter.format(p.price)}
+										</Paragraph>
+									</Typography>
+								</Col>
+							);
+						})
+					) : (
+						<Col className="item-detail-sidecart__items">
+							<Title>Tu carrito esta vacío</Title>
+							<Image width="30%" src="" alt="Carrito vacío" />
+						</Col>
+					)}
 				</Row>
 				<Row className="total-sidecart">
 					<Col className="total">
 						<Divider />
 						<Paragraph>
 							<Text strong>Total:</Text>{" "}
-							{cart.lenght &&
+							{cart?.length &&
 								formatter.format(
-									cart?.reduce((p) => {
-										return p.quantity * p.price;
-									})
+									cart?.reduce((amount, p) => {
+										return amount + p.quantity * p.price;
+									}, 0)
 								)}
 						</Paragraph>
 						<Row className="total-btns">
