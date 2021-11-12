@@ -14,71 +14,71 @@ const Cart = () => {
 	console.log(cart?.lenght);
 
 	return cart?.length ? (
-		<div className="container">
-			<Col>
-				<Row>
-					<Col className="item-cart__title">
-						<Title level={2}>Mi Carrito</Title>
-					</Col>
-				</Row>
-				<Divider />
-				{cart?.map((p) => {
-					return (
-						<Row className="item-detail-cart__items" key={p.id}>
-							<Col lg={4}>
-								<Image width="auto" src={p.img} alt={p.alt} />
-							</Col>
-							<Col lg={18}>
-								<Typography>
-									<Paragraph>
-										<Text strong>{p.name}</Text>
-									</Paragraph>
-									<Paragraph>
-										{p.quantity} x {formatter.format(p.price)}
-									</Paragraph>
-								</Typography>
-							</Col>
-							<Col lg={2}>
-								<Button
-									icon={<CloseOutlined />}
-									className="btn-cerrar-cart"
-									onClick={() => {
-										removeItem(p.id);
-									}}
-								></Button>
-							</Col>
-						</Row>
-					);
-				})}
-				<Row className="total-cart">
-					<Col className="total">
-						<Divider />
-						<Paragraph>
-							<Text strong>Total:</Text>{" "}
-							{formatter.format(
-								cart?.reduce((p) => {
-									return p.quantity * p.price;
-								})
-							)}
-						</Paragraph>
-					</Col>
-				</Row>
-			</Col>
+		<div className="container cart">
 			<Row>
-				<Col>
-					<Link to="/">
-						<Button type="primary">Seguir comprando</Button>
-					</Link>
+				<Col span={24} className="item-cart__title">
+					<Title level={2}>Mi Carrito</Title>
 				</Col>
-				<Col className="btn-remove">
+			</Row>
+			<Divider />
+			{cart?.map((p) => {
+				return (
+					<Row
+						className="item-detail-cart__items"
+						key={p.id}
+						gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
+					>
+						<Col lg={2}>
+							<Image width="auto" src={p.img} alt={p.alt} />
+						</Col>
+						<Col lg={21}>
+							<Typography>
+								<Paragraph>
+									<Text strong>{p.name}</Text>
+								</Paragraph>
+								<Paragraph>
+									{p.quantity} x {formatter.format(p.price)}
+								</Paragraph>
+							</Typography>
+						</Col>
+						<Col lg={1}>
+							<Button
+								icon={<CloseOutlined />}
+								className="btn-cerrar-cart"
+								onClick={() => {
+									removeItem(p.id);
+								}}
+							></Button>
+						</Col>
+					</Row>
+				);
+			})}
+			<Row className="total-cart">
+				<Col span={24} className="total">
+					<Divider />
+					<Paragraph>
+						<Text strong>Total:</Text>{" "}
+						{formatter.format(
+							cart?.reduce((p) => {
+								return p.quantity * p.price;
+							})
+						)}
+					</Paragraph>
+				</Col>
+			</Row>
+			<Row className="btns-cart">
+				<Col>
 					<Button type="primary" onClick={clear}>
 						Remover Todo
 					</Button>
 				</Col>
+				<Col>
+					<Button type="primary">Finalizar Compra</Button>
+				</Col>
 			</Row>
 		</div>
 	) : (
-		<Content className="container cart">
+		<Content className="container empty-cart">
 			<Row>
 				<Col>
 					<Typography>

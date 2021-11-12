@@ -65,7 +65,14 @@ const SideCart = () => {
 							</Col>
 							<Col>
 								<Link to="/cart">
-									<Button type="primary">Ir al Carrito</Button>
+									<Button
+										type="primary"
+										onClick={() => {
+											closeCart();
+										}}
+									>
+										Ir al Carrito
+									</Button>
 								</Link>
 							</Col>
 						</Row>
