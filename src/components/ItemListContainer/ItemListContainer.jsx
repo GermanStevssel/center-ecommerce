@@ -45,6 +45,13 @@ const ItemListContainer = ({ contTitle }) => {
 								alt="Banner PS5"
 							/>
 						</div>
+						<div>
+							<img
+								className="img-banner"
+								src="/img/carousel/banner-xbox-series-s.jpg"
+								alt="Banner Xbox Serie S"
+							/>
+						</div>
 					</Carousel>
 					<Content>
 						<div className="item-list-container">
