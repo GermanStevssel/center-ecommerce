@@ -1,5 +1,4 @@
-import { createContext, useContext } from "react";
-import { useState } from "react/cjs/react.development";
+import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
@@ -40,7 +39,6 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 		setShow(!show);
 	};
 
-	console.log(cart);
 	return (
 		<CartContext.Provider
 			value={{ cart, show, addToCart, removeItem, clear, switchSideCart }}
