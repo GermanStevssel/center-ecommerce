@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "antd";
 import { useCart } from "../../context/CartContext";
 import {
@@ -8,13 +8,19 @@ import {
 } from "@ant-design/icons";
 import "./ItemCount.less";
 
-const ItemCount = ({ item }) => {
-	const [count, setCount] = useState(1);
+const ItemCount = ({ item, initial, onCart = false }) => {
+	const [count, setCount] = useState(initial);
 	const { addToCart } = useCart();
 
 	const add = () => (count < item.stock ? setCount(count + 1) : null);
 
 	const remove = () => (count > 1 ? setCount(count - 1) : null);
+
+	useEffect(() => {
+		if (onCart) {
+			addToCart(item, count);
+		}
+	}, [count]);
 
 	return (
 		<div className="item-count">
@@ -32,6 +38,7 @@ const ItemCount = ({ item }) => {
 				onClick={() => {
 					addToCart(item, count);
 				}}
+				style={{ display: onCart ? "none" : "inline-block" }}
 			>
 				Agregar <ShoppingCartOutlined />
 			</Button>

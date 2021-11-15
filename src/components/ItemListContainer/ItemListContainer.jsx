@@ -17,7 +17,7 @@ const ItemListContainer = ({ contTitle }) => {
 				} else {
 					reject("No existen productos en esta categoría");
 				}
-			}, 2000);
+			}, 1000);
 		});
 
 	useEffect(() => {

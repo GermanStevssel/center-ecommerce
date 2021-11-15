@@ -3,7 +3,7 @@ import { useCart } from "../../context/CartContext";
 import "./CartWidget.less";
 
 const CartWidget = ({ count }) => {
-	const { switchSideCart } = useCart();
+	const { cart, switchSideCart } = useCart();
 
 	return (
 		<div className="cartWidget">
@@ -13,7 +13,7 @@ const CartWidget = ({ count }) => {
 					switchSideCart();
 				}}
 			/>
-			<div className="quantity">
+			<div className={cart.length > 0 ? "quantity" : "quantity hidden"}>
 				<span>{count}</span>
 			</div>
 		</div>

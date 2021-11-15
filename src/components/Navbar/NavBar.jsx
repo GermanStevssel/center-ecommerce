@@ -26,6 +26,8 @@ const NavBar = () => {
 
 	const current = state;
 
+	const itemsInCart = cart.reduce((total, p) => total + p.quantity, 0);
+
 	return (
 		<nav>
 			<Link to="/" className="logo">
@@ -83,7 +85,7 @@ const NavBar = () => {
 					</a>
 				</Menu.Item>
 			</Menu>
-			<CartWidget count={cart.length} />
+			<CartWidget count={itemsInCart} />
 		</nav>
 	);
 };

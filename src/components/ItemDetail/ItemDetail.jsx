@@ -32,7 +32,7 @@ const ItemDetail = ({ item }) => {
 					</Card>
 				</Col>
 				<Col sm={20} md={8} lg={5}>
-					<ItemCount item={item}></ItemCount>
+					<ItemCount item={item} initial={1}></ItemCount>
 				</Col>
 			</Row>
 		</>
