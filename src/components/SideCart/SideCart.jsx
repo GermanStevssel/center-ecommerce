@@ -4,14 +4,29 @@ import { useCart } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import { formatter } from "../Item/Item";
 import "./SideCart.less";
+// import { useEffect } from "react";
 
 const { Title, Text, Paragraph } = Typography;
 
 const SideCart = () => {
 	const { cart, show, switchSideCart } = useCart();
 
+	// useEffect(() => {
+	// 	const closeSideCart = () => {
+	// 		switchSideCart();
+	// 	};
+
+	// 	let overlay;
+
+	// 	if (show) {
+	// 		overlay = document.querySelector(".overlay");
+
+	// 		overlay.addEventListener("click", closeSideCart);
+	// 	}
+	// }, [show, switchSideCart]);
+
 	return show ? (
-		<div className="overlay">
+		<Row className="overlay">
 			<Col className="item-detail-sidecart">
 				<Row>
 					<Col className="item-sidecart__title">
@@ -26,7 +41,7 @@ const SideCart = () => {
 					</Col>
 				</Row>
 				<Divider />
-				<Row>
+				<Row className="item-detail-sidecart__container">
 					{cart?.length > 0 ? (
 						cart?.map((p) => {
 							return (
@@ -91,7 +106,7 @@ const SideCart = () => {
 					</Col>
 				</Row>
 			</Col>
-		</div>
+		</Row>
 	) : null;
 };
 

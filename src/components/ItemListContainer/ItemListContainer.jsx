@@ -3,6 +3,9 @@ import catalogue from "../../products/products";
 import ItemList from "../ItemList";
 import { useState, useEffect } from "react";
 import Loading from "../Loading";
+import fifa22 from "../../img/banner/banner-fifa22.jpg";
+import xbox from "../../img/banner/banner-xbox-series-s.jpg";
+import ps5 from "../../img/banner/banner-ps5.jpg";
 import { Content } from "antd/lib/layout/layout";
 import { Carousel } from "antd";
 
@@ -32,23 +35,15 @@ const ItemListContainer = ({ contTitle }) => {
 				<>
 					<Carousel autoplay>
 						<div>
-							<img
-								className="img-banner"
-								src="/img/carousel/banner-fifa22.jpg"
-								alt="Banner FIFA22"
-							/>
+							<img className="img-banner" src={fifa22} alt="Banner FIFA22" />
+						</div>
+						<div>
+							<img className="img-banner" src={ps5} alt="Banner PS5" />
 						</div>
 						<div>
 							<img
 								className="img-banner"
-								src="/img/carousel/banner-ps5.jpg"
-								alt="Banner PS5"
-							/>
-						</div>
-						<div>
-							<img
-								className="img-banner"
-								src="/img/carousel/banner-xbox-series-s.jpg"
+								src={xbox}
 								alt="Banner Xbox Serie S"
 							/>
 						</div>

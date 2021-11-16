@@ -15,14 +15,14 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 
 			if (itemFinded > -1) {
 				const cartAux = [...cart];
-				cartAux[itemFinded].quantity += quantity;
+				cartAux[itemFinded].quantity = quantity;
 
 				setCart(cartAux);
 			} else {
 				setCart([...cart, product]);
+				switchSideCart();
 			}
 		}
-		switchSideCart();
 	};
 
 	const removeItem = (id) => {
@@ -35,13 +35,25 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 		setCart([]);
 	};
 
+	const isInCart = (item) => {
+		cart.some((p) => p.id === item.id);
+	};
+
 	const switchSideCart = () => {
 		setShow(!show);
 	};
 
 	return (
 		<CartContext.Provider
-			value={{ cart, show, addToCart, removeItem, clear, switchSideCart }}
+			value={{
+				cart,
+				show,
+				addToCart,
+				removeItem,
+				clear,
+				isInCart,
+				switchSideCart,
+			}}
 		>
 			{children}
 		</CartContext.Provider>

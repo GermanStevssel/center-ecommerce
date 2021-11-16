@@ -19,6 +19,7 @@
 
 		.item-sidecart__title {
 			width: 100%;
+			height: 2rem;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -36,22 +37,29 @@
 			}
 		}
 
-		.item-detail-sidecart__items {
-			display: flex;
-			flex-wrap: wrap;
-			padding: 1rem;
+		.item-detail-sidecart__container {
+			max-height: calc(100vh - 64px - 2rem - 10rem);
+			overflow-y: scroll;
 
-			article {
-				width: 70%;
-				padding-left: 0.5rem;
+			.item-detail-sidecart__items {
+				display: flex;
+				flex-wrap: wrap;
+				padding: 1rem;
+
+				article {
+					width: 70%;
+					padding-left: 0.5rem;
+				}
 			}
 		}
 
 		.total-sidecart {
-			position: relative;
-			right: 0;
-			top: 40%;
-			padding: 1rem;
+			position: fixed;
+			bottom: 0;
+			width: 23vw;
+			height: 10rem;
+			background-color: #fff;
+			z-index: 200;
 
 			.total {
 				width: 100%;
