@@ -24,7 +24,7 @@ const ItemCount = ({ item, initial, onCart = false }) => {
 				addToCart(item, count);
 			}
 		}
-	}, [count, item]);
+	}, [count, item, onCart]);
 
 	return (
 		<div className="item-count">
