@@ -10,15 +10,19 @@ import "./ItemCount.less";
 
 const ItemCount = ({ item, initial, onCart = false }) => {
 	const [count, setCount] = useState(initial);
-	const { addToCart } = useCart();
+	const { addToCart, removeItem } = useCart();
 
 	const add = () => (count < item.stock ? setCount(count + 1) : null);
 
-	const remove = () => (count > 1 ? setCount(count - 1) : null);
+	const remove = () => (count >= 1 ? setCount(count - 1) : null);
 
 	useEffect(() => {
 		if (onCart) {
-			addToCart(item, count);
+			if (count === 0) {
+				removeItem(item.id);
+			} else {
+				addToCart(item, count);
+			}
 		}
 	}, [count, item]);
 

@@ -3,6 +3,7 @@ import { Button, Col, Divider, Image, Row, Typography } from "antd";
 import { useCart } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import { formatter } from "../Item/Item";
+import cartImage from "../../img/cart/empty-cart.png";
 import "./SideCart.less";
 // import { useEffect } from "react";
 
@@ -12,16 +13,18 @@ const SideCart = () => {
 	const { cart, show, switchSideCart } = useCart();
 
 	// useEffect(() => {
-	// 	const closeSideCart = () => {
+	// 	const closeSideCart = (e) => {
 	// 		switchSideCart();
 	// 	};
 
 	// 	let overlay;
 
 	// 	if (show) {
-	// 		overlay = document.querySelector(".overlay");
+	// 		setTimeout(() => {
+	// 			overlay = document.querySelector(".overlay");
 
-	// 		overlay.addEventListener("click", closeSideCart);
+	// 			overlay.addEventListener("click", closeSideCart);
+	// 		}, 10);
 	// 	}
 	// }, [show, switchSideCart]);
 
@@ -41,9 +44,9 @@ const SideCart = () => {
 					</Col>
 				</Row>
 				<Divider />
-				<Row className="item-detail-sidecart__container">
-					{cart?.length > 0 ? (
-						cart?.map((p) => {
+				{cart?.length > 0 ? (
+					<Row className="item-detail-sidecart__container">
+						{cart?.map((p) => {
 							return (
 								<Col className="item-detail-sidecart__items" key={p.id}>
 									<Image width="30%" src={p.img} alt={p.alt} />
@@ -57,14 +60,22 @@ const SideCart = () => {
 									</Typography>
 								</Col>
 							);
-						})
-					) : (
-						<Col className="item-detail-sidecart__items">
-							<Title>Tu carrito esta vacío</Title>
-							<Image width="30%" src="" alt="Carrito vacío" />
+						})}
+					</Row>
+				) : (
+					<Row>
+						<Col className="empty-sidecart">
+							<Title>Tu carrito está vacío!</Title>
+							<Image
+								className="empty-sidecart__image"
+								width="50%"
+								src={cartImage}
+								alt="Carrito vacío"
+								preview={false}
+							/>
 						</Col>
-					)}
-				</Row>
+					</Row>
+				)}
 				<Row className="total-sidecart">
 					<Col className="total">
 						<Divider />
