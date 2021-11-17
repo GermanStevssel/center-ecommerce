@@ -9,6 +9,7 @@ import CategoryListContainer from "./components/CategoryListContainer";
 import Cart from "./components/Cart";
 import CartContextProvider from "./context";
 import SideCart from "./components/SideCart";
+import Footer from "./components/Footer";
 
 function App() {
 	return (
@@ -33,6 +34,7 @@ function App() {
 						</Route>
 					</Switch>
 					<SideCart />
+					<Footer />
 				</Layout>
 			</CartContextProvider>
 		</BrowserRouter>
