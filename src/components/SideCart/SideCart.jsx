@@ -5,31 +5,14 @@ import { Link } from "react-router-dom";
 import { formatter } from "../Item/Item";
 import cartImage from "../../img/cart/empty-cart.png";
 import "./SideCart.less";
-// import { useEffect } from "react";
 
 const { Title, Text, Paragraph } = Typography;
 
 const SideCart = () => {
 	const { cart, show, switchSideCart } = useCart();
 
-	// useEffect(() => {
-	// 	const closeSideCart = (e) => {
-	// 		switchSideCart();
-	// 	};
-
-	// 	let overlay;
-
-	// 	if (show) {
-	// 		setTimeout(() => {
-	// 			overlay = document.querySelector(".overlay");
-
-	// 			overlay.addEventListener("click", closeSideCart);
-	// 		}, 10);
-	// 	}
-	// }, [show, switchSideCart]);
-
 	return show ? (
-		<Row className="overlay">
+		<Row className="overlay" onClick={() => switchSideCart()}>
 			<Col className="item-detail-sidecart">
 				<Row>
 					<Col className="item-sidecart__title">

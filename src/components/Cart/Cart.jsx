@@ -126,7 +126,23 @@ const Cart = () => {
 							</Paragraph>
 						</Col>
 						<Col>
-							<Button type="primary" className="btn-buy">
+							<Button
+								type="primary"
+								className="btn-buy"
+								// onClick={() => {
+								// 	const order = {
+								// 		buyer: {
+								// 			name: "German",
+								// 			phone: 123456789,
+								// 			email: "gcas@gmail.com",
+								// 		},
+								// 		items: [...cart],
+								// 		total: cart.reduce((amount, p) => p.price + amount, 0),
+								// 	}
+
+								// 		sendOrder(order);
+								// }}
+							>
 								Finalizar Compra
 							</Button>
 						</Col>

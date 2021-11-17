@@ -36,7 +36,7 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 	};
 
 	const isInCart = (item) => {
-		cart.some((p) => p.id === item.id);
+		return cart.some((p) => p.id === item.id);
 	};
 
 	const switchSideCart = () => {
