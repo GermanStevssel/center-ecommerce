@@ -1,29 +1,26 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import catalogue from "../../products/products.json";
+// import catalogue from "../../products/products.json";
 import ItemDetail from "../ItemDetail";
 import Loading from "../Loading";
+import { getFirestore } from "../../firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 	const { itemId } = useParams();
 	const [item, setItem] = useState(null);
 
-	const getItem = (item) =>
-		new Promise((resolve, reject) => {
-			setTimeout(() => {
-				if (item) {
-					resolve(item);
-				} else {
-					reject("No existe el producto seleccionado");
-				}
-			}, 2000);
-		});
-
 	useEffect(() => {
-		getItem(catalogue)
-			.then((result) => setItem(result.find((item) => item.nameId === itemId)))
-			.catch((err) => console.log(err));
-	}, [itemId]);
+		const db = getFirestore();
+		const itemRef = doc(db, "items", { itemId });
+		getDoc(itemRef).then((snapshot) => {
+			if (snapshot.exists()) {
+				setItem(snapshot.data());
+			} else {
+				console.log("Este producto no existe");
+			}
+		});
+	}, []);
 
 	return <>{item ? <ItemDetail item={item} /> : <Loading />}</>;
 };

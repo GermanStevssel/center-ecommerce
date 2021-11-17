@@ -1,5 +1,4 @@
 import "./ItemListContainer.less";
-import catalogue from "../../products/products";
 import ItemList from "../ItemList";
 import { useState, useEffect } from "react";
 import Loading from "../Loading";
@@ -8,25 +7,20 @@ import xbox from "../../img/banner/banner-xbox-series-s.jpg";
 import ps5 from "../../img/banner/banner-ps5.jpg";
 import { Content } from "antd/lib/layout/layout";
 import { Carousel } from "antd";
+import { getFirestore } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const ItemListContainer = ({ contTitle }) => {
 	const [products, setProducts] = useState(null);
 
-	const getProducts = (db) =>
-		new Promise((resolve, reject) => {
-			setTimeout(() => {
-				if (db) {
-					resolve(db);
-				} else {
-					reject("No existen productos en esta categoría");
-				}
-			}, 1000);
-		});
-
 	useEffect(() => {
-		getProducts(catalogue)
-			.then((result) => setProducts(result))
-			.catch((err) => console.log(err));
+		const db = getFirestore();
+
+		getDocs(
+			collection(db, "items").then((snapshot) => {
+				setProducts(snapshot.docs.map((doc) => doc.data()));
+			})
+		);
 	}, []);
 
 	return (
