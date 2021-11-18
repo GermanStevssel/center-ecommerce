@@ -13,7 +13,6 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 			const product = { ...item, quantity: quantity };
 			const itemFinded = cart.findIndex((p) => p.id === item.id);
 
-			console.log(isInCart(item));
 			if (itemFinded > -1) {
 				const cartAux = [...cart];
 				cartAux[itemFinded].quantity = quantity;

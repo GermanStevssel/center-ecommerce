@@ -1,6 +1,10 @@
 .footer {
 	width: 100%;
 
+	img {
+		margin-bottom: 1rem;
+	}
+
 	.footer-container {
 		display: flex;
 		align-items: center;
@@ -11,6 +15,32 @@
 				margin-bottom: 0;
 				margin-left: 0.5rem;
 			}
+		}
+	}
+
+	.footer-sn-container {
+		margin-top: 1rem;
+
+		.sn-title {
+			width: 100%;
+		}
+
+		.anticon {
+			margin: 0.5rem;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			svg {
+				width: 25px;
+				height: 25px;
+			}
+		}
+
+		.footer-qr {
+			display: flex;
+			justify-content: center;
 		}
 	}
 }

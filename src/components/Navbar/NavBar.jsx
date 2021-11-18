@@ -10,7 +10,7 @@ import {
 } from "@ant-design/icons";
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
-import logo from "../../img/logo/logo-xs-n.png";
+import logo from "../../img/logo/center-logo-2.png";
 import "./NavBar.less";
 import CartWidget from "../CartWidget";
 
