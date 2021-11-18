@@ -2,30 +2,25 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ItemList from "../ItemList";
 import Loading from "../Loading";
-import catalogue from "../../products/products.json";
 import { Content } from "antd/lib/layout/layout";
+import { getFirestore } from "../../firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const CategoryListContainer = () => {
 	const { categoryId } = useParams();
 	const [items, setItems] = useState(null);
 
-	const getCategoryItems = (items) =>
-		new Promise((resolve, reject) => {
-			setTimeout(() => {
-				if (items) {
-					resolve(items);
-				} else {
-					reject("No existe el producto seleccionado");
-				}
-			}, 2000);
-		});
-
 	useEffect(() => {
-		getCategoryItems(catalogue)
-			.then((result) =>
-				setItems(result.filter((items) => items.category === categoryId))
-			)
-			.catch((err) => console.log(err));
+		const db = getFirestore();
+
+		const q = query(
+			collection(db, "items"),
+			where("category", "==", categoryId)
+		);
+
+		getDocs(q).then((snapshot) => {
+			setItems(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+		});
 	}, [categoryId]);
 
 	return (

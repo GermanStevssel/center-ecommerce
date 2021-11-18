@@ -14,7 +14,7 @@ export const formatter = new Intl.NumberFormat("es-AR", {
 const Item = ({ item }) => {
 	return (
 		<Badge.Ribbon text="Envío gratis">
-			<Link to={`/products/${item.nameId}`}>
+			<Link to={`/products/${item.id}`}>
 				<Card hoverable cover={<img alt={item.alt} src={item.img} />}>
 					<Typography>
 						<Text>
