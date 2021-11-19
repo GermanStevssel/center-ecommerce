@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import ItemList from "../ItemList";
-import Loading from "../Loading";
+import ItemList from "../../components/ItemList";
+import Loading from "../../components/Loading";
 import { Content } from "antd/lib/layout/layout";
 import { getFirestore } from "../../firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";

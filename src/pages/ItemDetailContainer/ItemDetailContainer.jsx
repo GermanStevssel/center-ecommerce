@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import catalogue from "../../products/products.json";
-import ItemDetail from "../ItemDetail";
-import Loading from "../Loading";
+import ItemDetail from "../../components/ItemDetail";
+import Loading from "../../components/Loading";
 import { getFirestore } from "../../firebase/index";
 import { doc, getDoc } from "firebase/firestore";
 

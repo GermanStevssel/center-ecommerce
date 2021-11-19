@@ -2,10 +2,11 @@ import { Button, Col, Image, Row, Typography } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import { Content } from "antd/lib/layout/layout";
 import { Link } from "react-router-dom";
-import ItemCount from "../ItemCount/ItemCount";
+
 import { useCart } from "../../context/CartContext";
 import "./Cart.less";
-import { formatter } from "../Item/Item";
+import { formatter } from "../../components/Item/Item";
+import ItemCount from "../../components/ItemCount";
 
 const { Title, Text, Paragraph } = Typography;
 

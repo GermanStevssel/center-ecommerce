@@ -1,7 +1,7 @@
 import "./ItemListContainer.less";
-import ItemList from "../ItemList";
+import ItemList from "../../components/ItemList";
 import { useState, useEffect } from "react";
-import Loading from "../Loading";
+import Loading from "../../components/Loading";
 import fifa22 from "../../img/banner/banner-fifa22.jpg";
 import xbox from "../../img/banner/banner-xbox-series-s.jpg";
 import ps5 from "../../img/banner/banner-ps5.jpg";

@@ -12,7 +12,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import logo from "../../img/logo/center-logo-2.png";
 import "./NavBar.less";
-import CartWidget from "../CartWidget";
+import CartWidget from "../../components/CartWidget";
 
 const { SubMenu } = Menu;
 
