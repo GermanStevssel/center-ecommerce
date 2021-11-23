@@ -2,16 +2,24 @@ import { Button, Col, Image, Row, Typography } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import { Content } from "antd/lib/layout/layout";
 import { Link } from "react-router-dom";
-
-import { useCart } from "../../context/CartContext";
+import { useCart, clear } from "../../context/CartContext";
 import "./Cart.less";
 import { formatter } from "../../components/Item/Item";
 import ItemCount from "../../components/ItemCount";
+import { useState } from "react";
+import BuyerForm from "../../components/BuyerForm";
 
 const { Title, Text, Paragraph } = Typography;
 
 const Cart = () => {
+	const [purchaseId, setPurchaseId] = useState(null);
 	const { cart, removeItem, clear } = useCart();
+
+	const purchaseTotal = formatter.format(
+		cart?.reduce((amount, p) => {
+			return amount + p.quantity * p.price;
+		}, 0)
+	);
 
 	return cart?.length ? (
 		<div className="container cart">
@@ -117,35 +125,11 @@ const Cart = () => {
 								<Text strong>Total</Text>
 							</Paragraph>
 							<Paragraph>
-								<Text strong>
-									{formatter.format(
-										cart?.reduce((amount, p) => {
-											return amount + p.quantity * p.price;
-										}, 0)
-									)}
-								</Text>
+								<Text strong>{purchaseTotal}</Text>
 							</Paragraph>
 						</Col>
-						<Col>
-							<Button
-								type="primary"
-								className="btn-buy"
-								// onClick={() => {
-								// 	const order = {
-								// 		buyer: {
-								// 			name: "German",
-								// 			phone: 123456789,
-								// 			email: "gcas@gmail.com",
-								// 		},
-								// 		items: [...cart],
-								// 		total: cart.reduce((amount, p) => p.price + amount, 0),
-								// 	}
-
-								// 		sendOrder(order);
-								// }}
-							>
-								Finalizar Compra
-							</Button>
+						<Col span={24}>
+							<BuyerForm cart={cart} total={purchaseTotal} />
 						</Col>
 					</Row>
 				</Col>
