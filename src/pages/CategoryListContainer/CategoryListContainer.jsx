@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import ItemList from "../../components/ItemList";
 import Loading from "../../components/Loading";
 import { Content } from "antd/lib/layout/layout";
-import { getFirestore } from "../../firebase";
+import { db } from "../../firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 const CategoryListContainer = () => {
@@ -11,8 +11,6 @@ const CategoryListContainer = () => {
 	const [items, setItems] = useState(null);
 
 	useEffect(() => {
-		const db = getFirestore();
-
 		const q = query(
 			collection(db, "items"),
 			where("category", "==", categoryId)

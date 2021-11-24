@@ -7,15 +7,13 @@ import xbox from "../../img/banner/banner-xbox-series-s.jpg";
 import ps5 from "../../img/banner/banner-ps5.jpg";
 import { Content } from "antd/lib/layout/layout";
 import { Carousel } from "antd";
-import { getFirestore } from "../../firebase/index";
+import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 const ItemListContainer = ({ contTitle }) => {
 	const [products, setProducts] = useState(null);
 
 	useEffect(() => {
-		const db = getFirestore();
-
 		getDocs(collection(db, "items")).then((snapshot) => {
 			setProducts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
 		});
