@@ -2,17 +2,17 @@ import { Button, Col, Image, Row, Typography } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import { Content } from "antd/lib/layout/layout";
 import { Link } from "react-router-dom";
-import { useCart, clear } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext";
 import "./Cart.less";
 import { formatter } from "../../components/Item/Item";
 import ItemCount from "../../components/ItemCount";
-import { useState } from "react";
+// import { useState } from "react";
 import BuyerForm from "../../components/BuyerForm";
 
 const { Title, Text, Paragraph } = Typography;
 
 const Cart = () => {
-	const [purchaseId, setPurchaseId] = useState(null);
+	// const [purchaseId, setPurchaseId] = useState(null);
 	const { cart, removeItem, clear } = useCart();
 
 	const purchaseTotal = formatter.format(
@@ -129,7 +129,7 @@ const Cart = () => {
 							</Paragraph>
 						</Col>
 						<Col span={24}>
-							<BuyerForm cart={cart} total={purchaseTotal} />
+							<BuyerForm cart={cart} total={purchaseTotal} clear={clear} />
 						</Col>
 					</Row>
 				</Col>

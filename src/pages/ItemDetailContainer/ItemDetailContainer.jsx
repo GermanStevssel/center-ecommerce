@@ -10,8 +10,6 @@ const ItemDetailContainer = () => {
 	const { itemId } = useParams();
 	const [item, setItem] = useState(null);
 
-	console.log(itemId);
-
 	useEffect(() => {
 		const db = getFirestore();
 		const itemRef = doc(db, "items", itemId);

@@ -1,10 +1,10 @@
-import { Form, Input, InputNumber, Button } from "antd";
+import { Form, Input, Button } from "antd";
 import { addDoc, getFirestore, collection } from "@firebase/firestore";
 import { useState } from "react";
 import "./BuyerForm.less";
 
-const BuyerForm = ({ cart, total, purchaseId }) => {
-	const [purchaseId, setPurchaseId] = useState(null);
+const BuyerForm = ({ cart, total, clear }) => {
+	// const [purchaseId, setPurchaseId] = useState(null);
 	const [buyerData, setBuyerData] = useState({
 		buyerName: "",
 		buyerEmail: "",
@@ -15,24 +15,28 @@ const BuyerForm = ({ cart, total, purchaseId }) => {
 		setBuyerData({ ...buyerData, [evt.target.name]: evt.target.value });
 	};
 
-	const onHandleClick = () => {
+	const date = new Date();
+	const purchaseDate = date.toLocaleDateString();
+
+	const onHandleClick = (evt) => {
+		evt.preventDefault();
+
 		const order = {
-			buyer: {
-				name: "German",
-				phone: 123456789,
-				email: "gcas@gmail.com",
-			},
+			buyerData,
 			items: [...cart],
-			total: cart.reduce((amount, p) => p.price + amount, 0),
+			purchaseDate,
+			total: total,
 		};
+		console.log(order);
 
-		const sendOrder = (order) => {
-			const db = getFirestore();
-			const ordersCollection = collection(db, "orders");
+		const db = getFirestore();
+		const ordersCollection = collection(db, "orders");
 
-			addDoc(ordersCollection, order).then(({ id }) => purchaseId(id));
-			clear();
-		};
+		addDoc(ordersCollection, order).then(({ id }) =>
+			alert(`Se ha registrado tu compra con el número de id: ${id}`)
+		);
+
+		clear();
 	};
 
 	const layout = {
@@ -45,31 +49,20 @@ const BuyerForm = ({ cart, total, purchaseId }) => {
 		required: "${label} es requerido!",
 		types: {
 			email: "${label} no es un email válido!",
-			number: "${label} no es un número válido!",
-		},
-		number: {
-			range: "${label} must be between ${min} and ${max}",
+			tel: "${label} no es un número válido!",
 		},
 	};
 
 	return (
-		<Form {...layout} name="nest-messages" validateMessages={validateMessages}>
-			<Form.Item name="buyerName" label="Nombre" rules={[{ required: true }]}>
-				<Input onChange={buyerDataUpdate} />
+		<Form {...layout} validateMessages={validateMessages}>
+			<Form.Item label="Nombre" rules={[{ required: true }]}>
+				<Input name="buyerName" onChange={buyerDataUpdate} />
 			</Form.Item>
-			<Form.Item
-				name="userEmail"
-				label="Email"
-				rules={[{ type: "email", required: true }]}
-			>
-				<Input onChange={buyerDataUpdate} />
+			<Form.Item label="Email" rules={[{ type: "email", required: true }]}>
+				<Input name="buyerEmail" onChange={buyerDataUpdate} />
 			</Form.Item>
-			<Form.Item
-				name="buyerPhone"
-				label="Teléfono"
-				rules={[{ type: "number", min: 0, max: 9999999999, required: true }]}
-			>
-				<InputNumber onChange={buyerDataUpdate} />
+			<Form.Item label="Teléfono" rules={[{ type: "tel", required: true }]}>
+				<Input name="buyerPhone" onChange={buyerDataUpdate} />
 			</Form.Item>
 			<Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>
 				<Button
