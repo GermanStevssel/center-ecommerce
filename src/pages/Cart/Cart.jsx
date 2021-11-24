@@ -13,7 +13,7 @@ const { Title, Text, Paragraph } = Typography;
 
 const Cart = () => {
 	// const [purchaseId, setPurchaseId] = useState(null);
-	const { cart, removeItem, clear } = useCart();
+	const { cart, addToCart, removeItem, clear } = useCart();
 
 	const purchaseTotal = formatter.format(
 		cart?.reduce((amount, p) => {
@@ -89,7 +89,13 @@ const Cart = () => {
 									</Typography>
 								</Col>
 								<Col lg={6}>
-									<ItemCount item={p} initial={p.quantity} onCart={true} />
+									<ItemCount
+										item={p}
+										initial={p.quantity}
+										onCart={true}
+										min={removeItem}
+										sum={addToCart}
+									/>
 								</Col>
 								<Col lg={3}>
 									<Typography>
@@ -110,13 +116,15 @@ const Cart = () => {
 							</Row>
 						);
 					})}
-					<Row className="btns-cart">
-						<Col>
-							<Button type="primary" onClick={clear}>
-								Remover Todo
-							</Button>
-						</Col>
-					</Row>
+					{cart?.length > 1 && (
+						<Row className="btns-cart">
+							<Col>
+								<Button type="primary" onClick={clear}>
+									Remover Todo
+								</Button>
+							</Col>
+						</Row>
+					)}
 				</Col>
 				<Col sm={24} md={6} lg={8}>
 					<Row className="total-cart">

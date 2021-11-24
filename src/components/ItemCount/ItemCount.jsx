@@ -8,9 +8,15 @@ import {
 } from "@ant-design/icons";
 import "./ItemCount.less";
 
-const ItemCount = ({ item, initial, onCart = false }) => {
+const ItemCount = ({
+	item,
+	initial,
+	onCart = false,
+	min = null,
+	sum = null,
+}) => {
 	const [count, setCount] = useState(initial);
-	const { addToCart, removeItem } = useCart();
+	const { addToCart } = useCart();
 
 	const add = () => (count < item.stock ? setCount(count + 1) : null);
 
@@ -19,9 +25,9 @@ const ItemCount = ({ item, initial, onCart = false }) => {
 	useEffect(() => {
 		if (onCart) {
 			if (count === 0) {
-				removeItem(item.id);
+				min(item.id);
 			} else {
-				addToCart(item, count);
+				sum(item, count);
 			}
 		}
 	}, [count, item, onCart]);
