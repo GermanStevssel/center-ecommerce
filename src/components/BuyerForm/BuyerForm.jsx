@@ -27,7 +27,6 @@ const BuyerForm = ({ cart, total, clear }) => {
 			purchaseDate,
 			total: total,
 		};
-		console.log(order);
 
 		const db = getFirestore();
 		const ordersCollection = collection(db, "orders");
