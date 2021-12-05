@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 
 const CartContext = createContext();
 
@@ -8,28 +8,38 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 	const [cart, setCart] = useState(defaultValue);
 	const [show, setShow] = useState(false);
 
-	const addToCart = (item, quantity) => {
-		if (quantity >= 1 && item.stock > 0) {
-			const product = { ...item, quantity: quantity };
-			const itemFinded = cart.findIndex((p) => p.id === item.id);
+	const switchSideCart = useCallback(() => {
+		setShow(!show);
+	}, [show]);
 
-			if (itemFinded > -1) {
-				const cartAux = [...cart];
-				cartAux[itemFinded].quantity = quantity;
+	const addToCart = useCallback(
+		(item, quantity) => {
+			if (quantity >= 1 && item.stock > 0) {
+				const product = { ...item, quantity: quantity };
+				const itemFinded = cart.findIndex((p) => p.id === item.id);
 
-				setCart(cartAux);
-			} else {
-				setCart([...cart, product]);
-				switchSideCart();
+				if (itemFinded > -1) {
+					const cartAux = [...cart];
+					cartAux[itemFinded].quantity = quantity;
+
+					setCart(cartAux);
+				} else {
+					setCart([...cart, product]);
+					switchSideCart();
+				}
 			}
-		}
-	};
+		},
+		[cart, switchSideCart]
+	);
 
-	const removeItem = (id) => {
-		const newCart = cart.filter((product) => product.id !== id);
+	const removeItem = useCallback(
+		(id) => {
+			const newCart = cart.filter((product) => product.id !== id);
 
-		setCart(newCart);
-	};
+			setCart(newCart);
+		},
+		[cart]
+	);
 
 	const clear = () => {
 		setCart([]);
@@ -37,10 +47,6 @@ export const CartContextProvider = ({ defaultValue = [], children }) => {
 
 	const isInCart = (item) => {
 		return cart.some((p) => p.id === item.id);
-	};
-
-	const switchSideCart = () => {
-		setShow(!show);
 	};
 
 	return (

@@ -30,7 +30,7 @@ const ItemCount = ({
 				sum(item, count);
 			}
 		}
-	}, [count, item, onCart]);
+	}, [count, item, min, onCart, sum]);
 
 	return (
 		<div className="item-count">
