@@ -23,14 +23,14 @@ const ItemCount = ({
 	const remove = () => (count >= 1 ? setCount(count - 1) : null);
 
 	useEffect(() => {
-		if (onCart) {
+		if (onCart && count !== initial) {
 			if (count === 0) {
 				min(item.id);
 			} else {
 				sum(item, count);
 			}
 		}
-	}, [count, item, onCart]);
+	}, [count, initial, item, min, onCart, sum]);
 
 	return (
 		<div className="item-count">
