@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useCart } from "../../context/CartContext";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../../components/ItemDetail";
 import Loading from "../../components/Loading";
@@ -8,6 +9,7 @@ import { doc, getDoc } from "firebase/firestore";
 const ItemDetailContainer = () => {
 	const { itemId } = useParams();
 	const [item, setItem] = useState(null);
+	const { addToCart } = useCart();
 
 	useEffect(() => {
 		const itemRef = doc(db, "items", itemId);
@@ -21,7 +23,9 @@ const ItemDetailContainer = () => {
 		});
 	}, [itemId]);
 
-	return <>{item ? <ItemDetail item={item} /> : <Loading />}</>;
+	return (
+		<>{item ? <ItemDetail item={item} addToCart={addToCart} /> : <Loading />}</>
+	);
 };
 
 export default ItemDetailContainer;

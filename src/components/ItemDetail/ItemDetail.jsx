@@ -5,7 +5,7 @@ import "./ItemDetail.less";
 
 const { Title, Text, Paragraph } = Typography;
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, addToCart }) => {
 	return (
 		<>
 			<Row className="container item-detail" gutter={8}>
@@ -32,7 +32,7 @@ const ItemDetail = ({ item }) => {
 					</Card>
 				</Col>
 				<Col sm={20} md={8} lg={5}>
-					<ItemCount item={item} initial={1}></ItemCount>
+					<ItemCount item={item} addToCart={addToCart} initial={1}></ItemCount>
 				</Col>
 			</Row>
 		</>

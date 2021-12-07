@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Button } from "antd";
-import { useCart } from "../../context/CartContext";
 import {
 	ShoppingCartOutlined,
 	MinusOutlined,
@@ -11,12 +10,12 @@ import "./ItemCount.less";
 const ItemCount = ({
 	item,
 	initial,
+	addToCart = null,
 	onCart = false,
 	min = null,
 	sum = null,
 }) => {
 	const [count, setCount] = useState(initial);
-	const { addToCart } = useCart();
 
 	const add = () => (count < item.stock ? setCount(count + 1) : null);
 

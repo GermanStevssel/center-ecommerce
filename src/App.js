@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import CartContextProvider from "./context";
 import SideCart from "./components/SideCart";
 import Footer from "./components/Footer";
+import Page404 from "./pages/Page404";
 
 function App() {
 	return (
@@ -31,6 +32,9 @@ function App() {
 						</Route>
 						<Route exact path="/cart">
 							<Cart />
+						</Route>
+						<Route path="/*">
+							<Page404 />
 						</Route>
 					</Switch>
 					<SideCart />
