@@ -1,5 +1,5 @@
 import { Form, Input, Button, Modal } from "antd";
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, doc, collection, updateDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
 import { useState } from "react";
 import "./BuyerForm.less";
@@ -21,6 +21,13 @@ const BuyerForm = ({ cart, total, clear }) => {
 		setBuyerData({ ...buyerData, [evt.target.name]: evt.target.value });
 	};
 
+	const warning = (value) => {
+		Modal.warning({
+			title: "Datos de formulario incorrectos",
+			content: `Por favor ingrese un ${value} correcto`,
+		});
+	};
+
 	const date = new Date();
 	const purchaseDate = date.toLocaleDateString();
 
@@ -34,12 +41,26 @@ const BuyerForm = ({ cart, total, clear }) => {
 			total: total,
 		};
 
-		const ordersCollection = collection(db, "orders");
+		if (buyerData.buyerName && buyerData.buyerEmail && buyerData.buyerPhone) {
+			// Actualizar stock en db una vez que se finalice la compra
+			cart.forEach((item) => {
+				const itemRef = doc(db, "items", item.id);
+				updateDoc(itemRef, { stock: item.stock - item.quantity });
+			});
 
-		addDoc(ordersCollection, order).then(({ id }) => {
-			setPurchaseId(id);
-			setIsModalVisible(true);
-		});
+			const ordersCollection = collection(db, "orders");
+
+			addDoc(ordersCollection, order).then(({ id }) => {
+				setPurchaseId(id);
+				setIsModalVisible(true);
+			});
+		} else if (!buyerData.buyerName) {
+			warning("nombre");
+		} else if (!buyerData.buyerEmail) {
+			warning("email");
+		} else {
+			warning("teléfono");
+		}
 	};
 
 	const layout = {
@@ -50,21 +71,50 @@ const BuyerForm = ({ cart, total, clear }) => {
 	const validateMessages = {
 		required: "${label} es requerido!",
 		types: {
-			email: "${label} no es un email válido!",
-			tel: "${label} no es un número válido!",
+			string: "Ingrese un nombre válido!",
+			email: "Ingrese es un email válido!",
+			number: "No es un número válido de ${label}!",
 		},
 	};
 
 	return (
 		<>
 			<Form {...layout} validateMessages={validateMessages}>
-				<Form.Item label="Nombre" rules={[{ required: true }]}>
+				<Form.Item
+					name={["user", "name"]}
+					label="Nombre"
+					rules={[
+						{
+							type: "string",
+							required: true,
+							pattern: "[a-zA-Z][a-zA-Z ]{2,}",
+						},
+					]}
+				>
 					<Input name="buyerName" onChange={buyerDataUpdate} />
 				</Form.Item>
-				<Form.Item label="Email" rules={[{ type: "email", required: true }]}>
+				<Form.Item
+					name={["user", "email"]}
+					label="Email"
+					rules={[
+						{
+							type: "email",
+							required: true,
+							pattern: "/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/",
+						},
+					]}
+				>
 					<Input name="buyerEmail" onChange={buyerDataUpdate} />
 				</Form.Item>
-				<Form.Item label="Teléfono" rules={[{ type: "tel", required: true }]}>
+				<Form.Item
+					label="Teléfono"
+					rules={[
+						{
+							type: "number",
+							required: true,
+						},
+					]}
+				>
 					<Input name="buyerPhone" onChange={buyerDataUpdate} />
 				</Form.Item>
 				<Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 2 }}>

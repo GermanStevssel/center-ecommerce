@@ -1,44 +1,24 @@
-## Dependencies
+# Center games & games 🎮
 
-You could install the dependencies used in this project with:
+Hi! 👋 this is my Coderhouse project, built with **React**. It pretends to be an ecommerce of everything related to videogames. You could take a look at the deploy [here](https://center-ecommerce-react-ch.netlify.app/)
 
-### `npm install`
+# Using the project
 
-To install Ant Design, Craco, Craco Less, Styled Componentes, React Router Dom and Firebase
+If you want to use this project locally, you could clone the project and have a copy to use it **offline!**
+First, you will probably need to install the dependencies with the command _"$ npm install"_ and then, you could run the project with _"$ npm start"_
 
-## Available Scripts
+## Libraries 📚
 
-In the project directory, you can run:
+This poproject was built with the next libraries:
 
-### `npm start`
+- **_"antd":_** "^4.16.13" - [Antd](https://ant.design/)
+- **_"@craco/craco":_** "^6.4.0" - [Craco](https://www.npmjs.com/package/@craco/craco)
+- **_"craco-less":_** "^1.20.0" - [Craco Less](https://www.npmjs.com/package/craco-less)
+- **_"firebase":_** "^9.4.1" - [Firebase](https://firebase.google.com/?hl=es)
+- **_"react-router-dom":_** "^5.3.0" - [React Router](https://v5.reactrouter.com/)
+- **_"styled-components":_** "^5.3.3" - [Styled Components](https://styled-components.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Demo 📽
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+A little demonstration of the site
+![enter image description here](https://media3.giphy.com/media/Ce4qz8jjOWyG06ivny/giphy.gif?cid=790b7611bd4e8bd5871ef9aa6570bd05443fa5e12970a61a&rid=giphy.gif&ct=g)
